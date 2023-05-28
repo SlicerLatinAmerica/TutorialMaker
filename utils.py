@@ -89,6 +89,7 @@ class WidgetFinder(qt.QWidget):
         self.shortcut = None
         self.logic = None
         self.cursorOverridden = False
+        self.currentWidgetSelect = "" 
 
     def __del__(self):
         self.showPointCursor(False)
@@ -149,8 +150,10 @@ class WidgetFinder(qt.QWidget):
         slicer.TextFinderLastWidget = widget  # useful for debugging
         logging.info("Widget found: "+widget.objectName)
         self.overlayOnWidget(widget)
+        self.hideOverlay()
         self.showPointCursor(False)
         print(widget)
+        self.currentWidgetSelect = str(widget)
     
         
 class Widget():
