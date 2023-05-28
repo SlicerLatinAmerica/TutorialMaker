@@ -1,5 +1,6 @@
 import slicer
 import qt
+import logging  
 
 class util():
 
@@ -79,9 +80,9 @@ class util():
         
 class WidgetFinder(qt.QWidget):
     def __init__(self, parent=None):
-        super(TextFinder, self).__init__(parent)
+        super(WidgetFinder, self).__init__(parent)
         self.setAttribute(qt.Qt.WA_StyledBackground)
-        self.setStyleSheet("QWidget { background-color: rgba(255, 0, 0, 50) }")
+        self.setStyleSheet("QWidget { background-color: rgba(153, 51, 153, 50)}")
         self.focusPolicy = qt.Qt.StrongFocus
         self.LanguageToolsLogic = None
         self.shortcutKeySequence = qt.QKeySequence("Ctrl+6")
