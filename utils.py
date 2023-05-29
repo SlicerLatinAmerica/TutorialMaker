@@ -74,10 +74,6 @@ class util():
                 widgets.append(child)
         return widgets
 
-    def static(x):
-        print("Hello, world"*x)
-        
-        
 class WidgetFinder(qt.QWidget):
     def __init__(self, parent=None):
         super(WidgetFinder, self).__init__(parent)
@@ -90,6 +86,7 @@ class WidgetFinder(qt.QWidget):
         self.logic = None
         self.cursorOverridden = False
         self.currentWidgetSelect = "" 
+        self.sinalManager = SignalManager()
 
     def __del__(self):
         self.showPointCursor(False)
@@ -152,8 +149,9 @@ class WidgetFinder(qt.QWidget):
         self.overlayOnWidget(widget)
         self.hideOverlay()
         self.showPointCursor(False)
-        print(widget)
         self.currentWidgetSelect = str(widget)
+        self.sinalManager.emit(str(widget))
+        print(widget)
     
         
 class Widget():
@@ -218,3 +216,18 @@ class Widget():
         posTopLeft = self.__widgetData.rect.topLeft()
         posBotRight = self.__widgetData.rect.bottomRight()
         return [posBotRight.x() - posTopLeft.x(), posBotRight.y() - posTopLeft.y()]
+
+class SignalManager(qt.QObject):
+    received = qt.Signal(object)
+    def __init__(self):
+        super(SignalManager, self).__init__(None)
+
+    def connect(self,func):
+        self.received.connect(func)
+
+    def emit(self, msg):
+        self.received.emit(msg)
+
+    def teste(self, msg):
+        print("Processed this: "+repr(msg))
+    
