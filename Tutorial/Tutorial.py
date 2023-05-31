@@ -14,130 +14,11 @@ from slicer.parameterNodeWrapper import (
 
 from slicer import vtkMRMLScalarVolumeNode
 
-<<<<<<< HEAD
-=======
-import json
-import qt
-
-
->>>>>>> victor
 
 #
 # Tutorial
 #
 
-<<<<<<< HEAD
-=======
-################### EHL TESTING 
-metadata = {} # JSON METADATA FILE
-
-# Get widget at clicked position
-class MetaFinder(qt.QWidget):
-   def __init__(self, parent=None):
-    print("M1")
-    super(TextFinder, self).__init__(parent)
-    self.setAttribute(qt.Qt.WA_StyledBackground)
-    self.setStyleSheet("QWidget { background-color: rgba(255, 0, 0, 50) }")
-
-   def __del__(self):
-    print("M2")
-    self.showPointCursor(True)
-
-class TextFinder(qt.QWidget):
-  
-
-  def __init__(self, parent=None):
-    print("T1")
-    super(TextFinder, self).__init__(parent)
-    self.setAttribute(qt.Qt.WA_StyledBackground)
-    self.setStyleSheet("QWidget { background-color: rgba(0, 255, 0, 50) }")
-    self.focusPolicy = qt.Qt.StrongFocus
-    self.LanguageToolsLogic = None
-    self.shortcutKeySequence = qt.QKeySequence("Ctrl+6")
-    self.shortcut = None
-    self.logic = None
-    self.cursorOverridden = True
- 
-
-  def __del__(self):
-    print("T2")
-    self.showPointCursor(True)
-
-  def enableShortcut(self, enable):
-    print("T3")
-    enable = True
-    if (self.shortcut is not None) == enable:
-      return
-    if self.shortcut:
-      self.shortcut.disconnect("activated()")
-      self.shortcut.setParent(None)
-      self.shortcut.deleteLater()
-      self.shortcut = None
-      self.hideOverlay()
-    else:
-      self.shortcut = qt.QShortcut(self.parent())
-      self.shortcut.setKey(self.shortcutKeySequence)
-      self.shortcut.connect( "activated()", self.showFullSize)
-
-  def showPointCursor(self, enable):
-    print("T4")
-    enable = True
-    if enable == self.cursorOverridden:
-      return
-    if enable:
-      slicer.app.setOverrideCursor(qt.Qt.PointingHandCursor)
-    else:
-      slicer.app.restoreOverrideCursor()
-    self.cursorOverridden = enable
-
-  def showFullSize(self):
-    print("T5")
-    self.pos = qt.QPoint()
-    self.setFixedSize(self.parent().size)
-    self.show()
-    self.setFocus(qt.Qt.ActiveWindowFocusReason)
-    self.showPointCursor(True)
-
-  def overlayOnWidget(self, widget):
-    print("T6")
-    pos = widget.mapToGlobal(qt.QPoint())
-    pos = self.parent().mapFromGlobal(pos)
-    self.pos = pos
-    self.setFixedSize(widget.size)
-
-  def hideOverlay(self):
-    print("T7")
-    self.hide()
-    self.showPointCursor(True)
-
-  def widgetAtPos(self, pos):
-    print("T8")
-    self.setAttribute(qt.Qt.WA_TransparentForMouseEvents)
-    widget = qt.QApplication.widgetAt(pos)
-    self.setAttribute(qt.Qt.WA_TransparentForMouseEvents, False)
-    print("Test1:", widget)
-    return widget
-
-  def keyPressEvent(self, event):
-    print("T9")
-    self.hideOverlay()
-
-  def mousePressEvent(self, event):
-    # Get widget at mouse position
-    print("T10")
-    pos = qt.QCursor().pos()
-    widget = self.widgetAtPos(pos)
-    slicer.TextFinderLastWidget = widget  # useful for debugging
-    print("Test1:", widget.objectName)
-    #logging.info("Widget found: "+widget.objectName)
-    self.overlayOnWidget(widget)
-    self.showPointCursor(False)
-    print("Tfin")
-    # # Extract text
-
-################## EHL TESTTING END
-
->>>>>>> victor
 class Tutorial(ScriptedLoadableModule):
     """Uses ScriptedLoadableModule base class, available at:
     https://github.com/Slicer/Slicer/blob/main/Base/Python/slicer/ScriptedLoadableModule.py
@@ -254,11 +135,6 @@ class TutorialWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
         self.logic = None
         self._parameterNode = None
         self._parameterNodeGuiTag = None
-<<<<<<< HEAD
-=======
-        self.textFinder = TextFinder(slicer.util.mainWindow())
-
->>>>>>> victor
 
     def setup(self) -> None:
         """
@@ -288,11 +164,7 @@ class TutorialWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
         self.addObserver(slicer.mrmlScene, slicer.mrmlScene.EndCloseEvent, self.onSceneEndClose)
 
         # Buttons
-<<<<<<< HEAD
         self.ui.startButton.connect('clicked(bool)', self.TutorialButton)
-=======
-        self.ui.StartButton.connect('clicked(bool)', self.TutorialButton)
->>>>>>> victor
 
         # Make sure parameter node is initialized (needed for module reload)
         #self.initializeParameterNode()
@@ -318,11 +190,7 @@ class TutorialWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
         if self._parameterNode:
             self._parameterNode.disconnectGui(self._parameterNodeGuiTag)
             self._parameterNodeGuiTag = None
-<<<<<<< HEAD
             self.removeObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
-=======
-            # self.removeObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
->>>>>>> victor
 
     def onSceneStartClose(self, caller, event) -> None:
         """
@@ -362,17 +230,12 @@ class TutorialWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
 
         if self._parameterNode:
             self._parameterNode.disconnectGui(self._parameterNodeGuiTag)
-<<<<<<< HEAD
             self.removeObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
-=======
-            # self.removeObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
->>>>>>> victor
         self._parameterNode = inputParameterNode
         if self._parameterNode:
             # Note: in the .ui file, a Qt dynamic property called "SlicerParameterName" is set on each
             # ui element that needs connection.
             self._parameterNodeGuiTag = self._parameterNode.connectGui(self.ui)
-<<<<<<< HEAD
             self.addObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
             self._checkCanApply()
 
@@ -387,89 +250,11 @@ class TutorialWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
     def TutorialButton(self) -> None:
         print('Generación de tutoriales')
 
-=======
-            # self.addObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
-            # self._checkCanApply()
-
-    # def _checkCanApply(self, caller=None, event=None) -> None:
-    #     if self._parameterNode and self._parameterNode.inputVolume and self._parameterNode.thresholdedVolume:
-    #         self.ui.applyButton.toolTip = "Compute output volume"
-    #         self.ui.applyButton.enabled = True
-    #     else:
-    #         self.ui.applyButton.toolTip = "Select input and output volume nodes"
-    #         self.ui.applyButton.enabled = False
-
-    def TutorialButton(self) -> None:
-        metadata["title"] = self.ui.lineEdit_Tutorialname.text
-        metadata["authors"]  = self.ui.lineEdit_Authorname.text
-        metadata["description"]  = self.ui.lineEdit_Description.text
-        print(metadata)
-        #self.record_instructions()
-
-###############################################################
-    # def enableTextFinder(self, enable):
-    #     if enable:
-    #         self.updateSettingsFromGUI()
-    #         self.logic.preferredLanguage = self.ui.textFinderLanguageEdit.text
-    #     self.textFinder.enableShortcut(enable)
-    #     # Only allow changing language if finder is disabled
-    #     self.ui.textFinderLanguageEdit.enabled = not enable
-###############################################################
-
-    def record_instructions(self)-> None:
-        slicer.app.processEvents()
-        self.widgetrecord()
-
-
-    def widgetrecord(self)-> None:
-        mainWindow = slicer.util.mainWindow()
-        mainWindowPos_global = mainWindow.mapToGlobal(mainWindow.rect.topLeft())
-
-        widgetsInfo = []
-        widgets = slicer.util.findChildren()
-        for widget in widgets:
-            if hasattr(widget, "isVisible") and widget.isVisible() and hasattr(widget, "mapToGlobal"):
-                widgetTopLeft_global = widget.mapToGlobal(widget.rect.topLeft())
-                widgetBottomRight_global = widget.mapToGlobal(widget.rect.bottomRight())
-                widgetPos_mainWindow = [widgetTopLeft_global.x() - mainWindowPos_global.x(), widgetTopLeft_global.y() - mainWindowPos_global.y()]
-                widgetSize_mainWindow = [widgetBottomRight_global.x() - widgetTopLeft_global.x(), widgetBottomRight_global.y() - widgetTopLeft_global.y()]
-                widgetInfo = {
-                    #"widget": widgetPath(widget),
-                    "className": widget.className(),
-                    "position": widgetPos_mainWindow,
-                    "size": widgetSize_mainWindow,
-                    }
-                if hasattr(widget, "windowTitle") and widget.windowTitle:
-                    widgetInfo["windowWitle"] = widget.windowTitle
-                if hasattr(widget, "text") and widget.text:
-                    widgetInfo["text"] = widget.text
-                widgetsInfo.append(widgetInfo)
-                print(widgetsInfo)
-
-    def widgetPath(widget):
-        path = ""
-        while widget:
-            path = (widget.objectName if widget.objectName else "?") + ("/" + path if path else "")
-            widget = widget.parent()
-            print(path)
-        return path
-
-
-    
-
-    
-        
-        
->>>>>>> victor
 
 #
 # TutorialLogic
 #
 
-<<<<<<< HEAD
-=======
-
->>>>>>> victor
 class TutorialLogic(ScriptedLoadableModuleLogic):
     """This class should implement all the actual
     computation done by your module.  The interface
