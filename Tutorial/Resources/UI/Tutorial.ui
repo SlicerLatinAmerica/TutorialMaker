@@ -10,6 +10,7 @@
     <height>438</height>
    </rect>
   </property>
+<<<<<<< HEAD
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QPushButton" name="startButton">
@@ -31,6 +32,55 @@
      </property>
     </spacer>
    </item>
+=======
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="ctkCollapsibleButton" name="CollapsibleButton">
+     <property name="text">
+      <string>Generate a tutorial</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Tutorial name:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_Tutorialname"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Author name (s):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_Authorname"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="StartButton">
+        <property name="text">
+         <string>Start to record tutorial</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_Description"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Main tutorial description:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+>>>>>>> victor
   </layout>
  </widget>
  <customwidgets>
@@ -40,6 +90,15 @@
    <header>qMRMLWidget.h</header>
    <container>1</container>
   </customwidget>
+<<<<<<< HEAD
+=======
+  <customwidget>
+   <class>ctkCollapsibleButton</class>
+   <extends>QWidget</extends>
+   <header>ctkCollapsibleButton.h</header>
+   <container>1</container>
+  </customwidget>
+>>>>>>> victor
  </customwidgets>
  <resources/>
  <connections/>
