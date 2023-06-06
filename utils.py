@@ -25,7 +25,7 @@ class util():
     def __getWidgetsRecursive(self, widget, depth):
         children = widget.getChildren()
         for child in children:
-            if child.name != "" and child.className != "QAction":
+            if child.name != "":
                 for i in range(depth):
                     print("\t", end="")
                 print(child.className, end=", ")
@@ -73,6 +73,20 @@ class util():
             if child.className == classname:
                 widgets.append(child)
         return widgets
+    
+    def uniqueWidgetPath(self, widgetToID):
+        path = widgetToID.name
+        parent = widgetToID
+        while(True):
+            parent = parent.parent()
+            if not parent:
+                break
+            if parent.name != "":
+                path = parent.name + "/" + path
+        return path
+
+        
+
 
 class WidgetFinder(qt.QWidget):
     def __init__(self, parent=None):
@@ -151,11 +165,16 @@ class WidgetFinder(qt.QWidget):
         self.showPointCursor(False)
         self.currentWidgetSelect = str(widget)
         self.sinalManager.emit(str(widget))
-        print(widget)
+        t = util()
+        print(t.uniqueWidgetPath(Widget(widget)))
+
+    
     
         
 class Widget():
     def __init__(self, widgetData) -> None:
+        if not widgetData:
+            return None
         self.__widgetData = widgetData
         self.name = widgetData.name
         self.className = widgetData.className()
@@ -178,8 +197,21 @@ class Widget():
         string += "\tID:        " + hex(id(self.__widgetData)) + "\n"
         return string
     
+    def __dict__(self):
+        dict = {
+            "name": self.name,
+            "text": self.text,
+            "toolTip": self.toolTip,
+            "className": self.className,
+            "id": hex(id(self.__widgetData)) 
+        }
+        return dict
+    
     def inner(self):
         return self.__widgetData
+    
+    def parent(self):
+        return Widget(self.__widgetData.parent())
 
     def getNamedChild(self, childName):
         if not hasattr(self.__widgetData, 'children'):
@@ -227,7 +259,3 @@ class SignalManager(qt.QObject):
 
     def emit(self, msg):
         self.received.emit(msg)
-
-    def teste(self, msg):
-        print("Processed this: "+repr(msg))
-    
