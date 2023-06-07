@@ -83,6 +83,8 @@ class util():
                 break
             if parent.name != "":
                 path = parent.name + "/" + path
+            else:
+                path = "/" + path
         return path
 
         
@@ -164,7 +166,7 @@ class WidgetFinder(qt.QWidget):
         self.hideOverlay()
         self.showPointCursor(False)
         self.currentWidgetSelect = str(widget)
-        self.sinalManager.emit(str(widget))
+        self.sinalManager.emit(Widget(widget))
         t = util()
         print(t.uniqueWidgetPath(Widget(widget)))
 
@@ -173,8 +175,6 @@ class WidgetFinder(qt.QWidget):
         
 class Widget():
     def __init__(self, widgetData) -> None:
-        if not widgetData:
-            return None
         self.__widgetData = widgetData
         self.name = widgetData.name
         self.className = widgetData.className()
@@ -211,7 +211,10 @@ class Widget():
         return self.__widgetData
     
     def parent(self):
-        return Widget(self.__widgetData.parent())
+        parent = self.__widgetData.parent()
+        if not parent:
+            return None
+        return Widget(parent)
 
     def getNamedChild(self, childName):
         if not hasattr(self.__widgetData, 'children'):
