@@ -167,8 +167,22 @@ class WidgetFinder(qt.QWidget):
         self.showPointCursor(False)
         self.currentWidgetSelect = str(widget)
         self.sinalManager.emit(Widget(widget))
+
+        #
+        # Não funciona ainda pq tenho que entender como fazer isso sem um paintEvent
+        #
+
+        pos = widget.mapToGlobal(qt.QPoint())
+        pos = self.parent().mapFromGlobal(pos)
+        painter = qt.QPainter()
+        painter.begin(self) #Essa linha o self é pra fazer referencia a uma função que tem ser um paintEvent.
+        painter.drawEllipse(pos[0], pos[1], 10, 12)
+        painter.end()
+
         t = util()
         print(t.uniqueWidgetPath(Widget(widget)))
+
+        
 
     
     
