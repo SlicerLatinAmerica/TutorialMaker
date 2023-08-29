@@ -102,6 +102,7 @@ class WidgetFinder(qt.QWidget):
         self.logic = None
         self.cursorOverridden = False
         self.currentWidgetSelect = "" 
+        self.currentWidget = None
         self.sinalManager = SignalManager()
 
     def __del__(self):
@@ -168,22 +169,55 @@ class WidgetFinder(qt.QWidget):
         self.currentWidgetSelect = str(widget)
         self.sinalManager.emit(Widget(widget))
 
-        #
-        # Não funciona ainda pq tenho que entender como fazer isso sem um paintEvent
-        #
-
-        pos = widget.mapToGlobal(qt.QPoint())
-        pos = self.parent().mapFromGlobal(pos)
-        painter = qt.QPainter()
-        painter.begin(self) #Essa linha o self é pra fazer referencia a uma função que tem ser um paintEvent.
-        painter.drawEllipse(pos[0], pos[1], 10, 12)
-        painter.end()
-
+        #shape = Shapes(slicer.util.mainWindow())
+        #shape.setTargetWidget(widget)
+        
+        #slicer.util.mainWindow().update()
+        #shape.update()
+        self.currentWidget = widget
         t = util()
         print(t.uniqueWidgetPath(Widget(widget)))
 
-        
+class Shapes(qt.QWidget):
+    def __init__(self, parent=None):
+        super(Shapes, self).__init__(parent)
+        self.focusPolicy = qt.Qt.StrongFocus
+        self.setAttribute(qt.Qt.WA_TransparentForMouseEvents)
+        self.widget = None
+        #slicer.app.setOverrideCursor(qt.Qt.PointingHandCursor)
+        print("Instantiated")
 
+    def setTargetWidget(self, widget):
+        print(widget)
+        if widget is None:
+            return
+        print(self.rect)
+        self.widget = widget
+        self.setFixedSize(widget.size)
+        
+    def showFullSize(self):
+        self.pos = qt.QPoint()
+        self.setFixedSize(self.parent().size)
+        self.show()
+        self.setFocus(qt.Qt.ActiveWindowFocusReason)
+
+    def paintEvent(self, event):
+        if self.widget is None:
+            return
+        
+        print("aeoiu")
+        widget = self.widget
+
+
+        pen = qt.QPen()
+        pen.setWidth(20)
+        pen.setColor(qt.QColor(255,0,0))
+
+        pos = widget.mapToGlobal(qt.QPoint())
+        pos = self.parent().mapFromGlobal(pos)
+        painter = qt.QPainter(self)
+        painter.setPen(pen)
+        painter.drawEllipse(pos.x() - (200/2) + widget.rect.width()/2, pos.y() - (200/2) + widget.rect.height()/2, 200, 200)
     
     
         
