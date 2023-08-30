@@ -167,7 +167,7 @@ class WidgetFinder(qt.QWidget):
         self.hideOverlay()
         self.showPointCursor(False)
         self.currentWidgetSelect = str(widget)
-        self.sinalManager.emit(Widget(widget))
+        self.sinalManager.emit(widget)
 
         #shape = Shapes(slicer.util.mainWindow())
         #shape.setTargetWidget(widget)
@@ -194,6 +194,7 @@ class Shapes(qt.QWidget):
         print(self.rect)
         self.widget = widget
         self.setFixedSize(widget.size)
+        self.showFullSize()
         
     def showFullSize(self):
         self.pos = qt.QPoint()
