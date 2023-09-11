@@ -161,22 +161,13 @@ class WidgetFinder(qt.QWidget):
         # Get widget at mouse position
         pos = qt.QCursor().pos()
         widget = self.widgetAtPos(pos)
-        slicer.TextFinderLastWidget = widget  # useful for debugging
-        logging.info("Widget found: "+widget.objectName)
         self.overlayOnWidget(widget)
         self.hideOverlay()
         self.showPointCursor(False)
         self.currentWidgetSelect = str(widget)
         self.sinalManager.emit(widget)
 
-        #shape = Shapes(slicer.util.mainWindow())
-        #shape.setTargetWidget(widget)
-        
-        #slicer.util.mainWindow().update()
-        #shape.update()
         self.currentWidget = widget
-        t = util()
-        print(t.uniqueWidgetPath(Widget(widget)))
 
 class Shapes(qt.QWidget):
     def __init__(self, parent=None):
@@ -185,13 +176,11 @@ class Shapes(qt.QWidget):
         self.setAttribute(qt.Qt.WA_TransparentForMouseEvents)
         self.widget = None
         #slicer.app.setOverrideCursor(qt.Qt.PointingHandCursor)
-        print("Instantiated")
 
     def setTargetWidget(self, widget):
-        print(widget)
         if widget is None:
             return
-        print(self.rect)
+
         self.widget = widget
         self.setFixedSize(widget.size)
         self.showFullSize()
@@ -206,9 +195,7 @@ class Shapes(qt.QWidget):
         if self.widget is None:
             return
         
-        print("aeoiu")
         widget = self.widget
-
 
         pen = qt.QPen()
         pen.setWidth(20)
