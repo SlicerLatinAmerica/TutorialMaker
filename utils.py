@@ -92,7 +92,7 @@ class util():
 
 class WidgetFinder(qt.QWidget):
     def __init__(self, parent=None):
-        super(WidgetFinder, self).__init__(parent)
+        super(WidgetFinder, self).__init__(None)
         self.setAttribute(qt.Qt.WA_StyledBackground)
         self.setStyleSheet("QWidget { background-color: rgba(153, 51, 153, 50)}")
         self.focusPolicy = qt.Qt.StrongFocus
@@ -104,6 +104,7 @@ class WidgetFinder(qt.QWidget):
         self.currentWidgetSelect = "" 
         self.currentWidget = None
         self.sinalManager = SignalManager()
+        self.aux = parent
 
     def __del__(self):
         self.showPointCursor(False)
@@ -133,14 +134,15 @@ class WidgetFinder(qt.QWidget):
 
     def showFullSize(self):
         self.pos = qt.QPoint()
-        self.setFixedSize(self.parent().size)
+        self.setFixedSize(self.aux.size)
+        self.setWindowOpacity(0.2)
         self.show()
         self.setFocus(qt.Qt.ActiveWindowFocusReason)
         self.showPointCursor(True)
 
     def overlayOnWidget(self, widget):
         pos = widget.mapToGlobal(qt.QPoint())
-        pos = self.parent().mapFromGlobal(pos)
+        pos = self.aux.mapFromGlobal(pos)
         self.pos = pos
         self.setFixedSize(widget.size)
 
@@ -197,7 +199,6 @@ class Shapes(qt.QWidget):
     def paintEvent(self, event):
         if self.widget is None:
             return
-        
         
         self.setFixedSize(self.parent().size)
         widget = self.widget
