@@ -191,6 +191,9 @@ class Shapes(qt.QWidget):
         self.show()
         self.setFocus(qt.Qt.ActiveWindowFocusReason)
 
+    def hideOverlay(self):
+        self.hide()
+
     def paintEvent(self, event):
         if self.widget is None:
             return
