@@ -171,6 +171,10 @@ class WidgetFinder(qt.QWidget):
 
         self.currentWidget = widget
 
+    def paintEvent(self, event):
+        self.setFixedSize(self.aux.size)
+        self.pos = self.aux.pos
+
 class Shapes(qt.QWidget):
     def __init__(self, parent=None):
         super(Shapes, self).__init__(parent)
