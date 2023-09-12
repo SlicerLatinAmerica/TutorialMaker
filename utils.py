@@ -198,6 +198,8 @@ class Shapes(qt.QWidget):
         if self.widget is None:
             return
         
+        
+        self.setFixedSize(self.parent().size)
         widget = self.widget
 
         pen = qt.QPen()
