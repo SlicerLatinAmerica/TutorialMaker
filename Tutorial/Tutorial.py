@@ -37,8 +37,16 @@ class MetaFinder(qt.QWidget):
    def __del__(self):
     print("M2")
     self.showPointCursor(True)
+<<<<<<< HEAD
    
 
+=======
+<<<<<<< HEAD:Tutorial/Tutorial/Tutorial.py
+   
+
+=======
+>>>>>>> victor:Tutorial/Tutorial.py
+>>>>>>> enrique
 
 class TextFinder(qt.QWidget):
   
