@@ -141,20 +141,26 @@ class TutorialMaker:
     def __init__(self):
         self.window = qt.QMainWindow()
         self.mouse_press_filter = None
-        self.label = qt.QLabel("Please, before starting the tutorial, choose the file you want to work with\n\n", self.window)
+        #self.label = qt.QLabel("Please, before starting the tutorial, choose the file you want to work with\n\n", self.window)
+        self.label = qt.QLabel("Por favor antes de comenzar el tutorial, elige el archivo con el que quieres trabajar\n\n", self.window)
         self.label.setAlignment(qt.Qt.AlignCenter)
         self.label.setWordWrap(True)
        
-        self.tutorial_text = qt.QLabel("The recording of the tutorial has started.\n\n"
-                                        "Use slicer as usual. In case you want to highlight more than two elements at the same time, use Ctrl + Mouse click.", self.window)
+        # self.tutorial_text = qt.QLabel("The recording of the tutorial has started.\n\n"
+        #                                 "Use slicer as usual. In case you want to highlight more than two elements at the same time, use Ctrl + Mouse click.", self.window)
+        self.tutorial_text = qt.QLabel("La grabación del tutorial ha iniciado.\n\n"
+                                        "Utilice 3D Slicer de forma habitual. En caso de querer resaltar más de dos elemetos al mismo tiempo utilice Ctrl + clic del ratón.", self.window)
+
         self.tutorial_text.setAlignment(qt.Qt.AlignJustify | qt.Qt.AlignVCenter)
         self.tutorial_text.setWordWrap(True)
         self.tutorial_text.hide()
        
-        self.add_data_button = qt.QPushButton("Add Data", self.window)
+        #self.add_data_button = qt.QPushButton("Add Data", self.window)
+        self.add_data_button = qt.QPushButton("Añadir datos", self.window)
         self.add_data_button.clicked.connect(self.on_add_data_clicked)
        
-        self.stop_tutorial_button = qt.QPushButton("Stop and save tutorial", self.window)
+        #self.stop_tutorial_button = qt.QPushButton("Stop and save tutorial", self.window)
+        self.stop_tutorial_button = qt.QPushButton("Terminar y guardar el tutorial", self.window)
         self.stop_tutorial_button.clicked.connect(self.on_stop)
         self.stop_tutorial_button.setStyleSheet("background-color: #000000;")
         self.stop_tutorial_button.hide()
@@ -170,7 +176,7 @@ class TutorialMaker:
        
         self.window.setCentralWidget(self.widget)
         self.window.setWindowTitle("Tutorial Maker Tool")
-        self.window.setFixedSize(500, 200)
+        #self.window.setFixedSize(500, 200)
         self.window.show()
 
 

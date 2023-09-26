@@ -12,13 +12,9 @@ def read_json_file(file_path):
     return data
 
 
-
-
-
-
 if __name__ == "__main__":
     # Replace 'your_json_file_path.json' with the actual path to your JSON file
-    json_file_path = 'C:/D/S4R/Slicer-build/screenshot_new/metadata.json'
+    json_file_path = 'C:/Users/Dell/AppData/Local/slicer.org/Slicer 5.4.0/screenshot_new/metadata.json'
 
 
     # Read the JSON file
@@ -64,7 +60,7 @@ if __name__ == "__main__":
                 w = slicer.util.findChildren(w, className = classname)[int(index)]
                 print(w)
             else:
-                w = slicer.util.findChild(w, name)
+                w = slicer.util.findChild(w.parent(), name)
                 print(w)
 
 
@@ -73,7 +69,14 @@ if __name__ == "__main__":
                     border: 2px solid pink;
                 }
                 """
+            # w.setStyleSheet(stylesheet)
+            # slicer.app.processEvents()
+            # time.sleep(2)
+            # w.setStyleSheet(" ")
+       
         w.setStyleSheet(stylesheet)
         slicer.app.processEvents()
         time.sleep(2)
         w.setStyleSheet(" ")
+        print("___________________________________")
+
