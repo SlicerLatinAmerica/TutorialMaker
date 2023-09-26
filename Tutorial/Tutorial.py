@@ -37,8 +37,11 @@ class MetaFinder(qt.QWidget):
    def __del__(self):
     print("M2")
     self.showPointCursor(True)
+<<<<<<< HEAD:Tutorial/Tutorial/Tutorial.py
    
 
+=======
+>>>>>>> victor:Tutorial/Tutorial.py
 
 class TextFinder(qt.QWidget):
   
@@ -307,7 +310,7 @@ class TutorialWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
         if self._parameterNode:
             self._parameterNode.disconnectGui(self._parameterNodeGuiTag)
             self._parameterNodeGuiTag = None
-            self.removeObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
+            # self.removeObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
 
     def onSceneStartClose(self, caller, event) -> None:
         """
@@ -347,22 +350,22 @@ class TutorialWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
 
         if self._parameterNode:
             self._parameterNode.disconnectGui(self._parameterNodeGuiTag)
-            self.removeObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
+            # self.removeObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
         self._parameterNode = inputParameterNode
         if self._parameterNode:
             # Note: in the .ui file, a Qt dynamic property called "SlicerParameterName" is set on each
             # ui element that needs connection.
             self._parameterNodeGuiTag = self._parameterNode.connectGui(self.ui)
-            self.addObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
-            self._checkCanApply()
+            # self.addObserver(self._parameterNode, vtk.vtkCommand.ModifiedEvent, self._checkCanApply)
+            # self._checkCanApply()
 
-    def _checkCanApply(self, caller=None, event=None) -> None:
-        if self._parameterNode and self._parameterNode.inputVolume and self._parameterNode.thresholdedVolume:
-            self.ui.applyButton.toolTip = "Compute output volume"
-            self.ui.applyButton.enabled = True
-        else:
-            self.ui.applyButton.toolTip = "Select input and output volume nodes"
-            self.ui.applyButton.enabled = False
+    # def _checkCanApply(self, caller=None, event=None) -> None:
+    #     if self._parameterNode and self._parameterNode.inputVolume and self._parameterNode.thresholdedVolume:
+    #         self.ui.applyButton.toolTip = "Compute output volume"
+    #         self.ui.applyButton.enabled = True
+    #     else:
+    #         self.ui.applyButton.toolTip = "Select input and output volume nodes"
+    #         self.ui.applyButton.enabled = False
 
     def TutorialButton(self) -> None:
         metadata["title"] = self.ui.lineEdit_Tutorialname.text
