@@ -2,8 +2,9 @@ import ctk
 import qt
 
 import slicer
-
+import SampleData
 from slicer.ScriptedLoadableModule import *
+
 import Lib.utils as utils
 
 # Slicer4Minute
@@ -31,11 +32,15 @@ class Slicer4MinuteTest(ScriptedLoadableModuleTest):
 
         Currently testing 'Part 2' which covers volumes, models, visibility and clipping.
         """
-        self.Tutorial = utils.Tutorial( "title",
-            "author",
-            "date",
-            "description")
-
+        self.Tutorial = utils.Tutorial( "Slicer4 Minute",
+            "Sonia Pujol, Ph.D.",
+            "28/08/2024",
+            "This tutorial is a 4-minute introduction to the 3D visualization capabilities of the Slicer4 software for medical image analysis.")
+        
+        util = utils.util()
+        layoutManager = slicer.app.layoutManager()
+        mainWindow = slicer.util.mainWindow()
+        
         #Clear Output folder
         self.Tutorial.clearTutorial()
 
@@ -73,13 +78,24 @@ class Slicer4MinuteTest(ScriptedLoadableModuleTest):
         self.Tutorial.nextScreenshot()
 
 
-        # check the slice planes
+        # 3 shot:
         red = slicer.util.getNode(pattern="vtkMRMLSliceNode1")
         red.SetSliceVisible(1)
+        slicer.app.layoutManager().sliceWidget("vtkMRMLSliceNode1").sliceController().pinButton().click()
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay('Screenshot #3: With the red view panel opened.')
+        slicer.app.layoutManager().sliceWidget("vtkMRMLSliceNode1").sliceController().pinButton().click()
+        
+        # 4 shot:
+        red.SetSliceOffset(-57)
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay('Screenshot #4: With the red view slided to -57.')
 
-        green = slicer.util.getNode(pattern="vtkMRMLSliceNode3")
-        green.SetSliceVisible(1)    
-
+        # 5 shot
+        skin = slicer.util.getNode(pattern='Skin')
+        skin.GetDisplayNode().SetOpacity(0.5)
+        nodeList = util.getNamedWidget("PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/ModelsModuleWidget/ResizableFrame/SubjectHierarchyTreeView").inner()
+        nodeList.setCurrentNode(skin)
         self.Tutorial.nextScreenshot()
 
         # rotate a bit
@@ -88,11 +104,19 @@ class Slicer4MinuteTest(ScriptedLoadableModuleTest):
         cam.GetCamera().Elevation(20)
 
         self.Tutorial.nextScreenshot()
+        self.delayDisplay('Screenshot #6: Change the visibility of skin to 0 and rotate de camera to show the top of the head.')
 
-        # turn off skin and skull
-        skin = slicer.util.getNode(pattern='Skin')
-        skin.GetDisplayNode().SetVisibility(0)
+        # 7 shot
+        green = slicer.util.getNode(pattern="vtkMRMLSliceNode3")
+        green.SetSliceVisible(1)
+        slicer.app.layoutManager().sliceWidget("vtkMRMLSliceNode1").sliceController().pinButton().click()
+        slicer.app.layoutManager().sliceWidget("vtkMRMLSliceNode3").sliceController().pinButton().click()
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay('Screenshot #7: Set the visibility of the green view, showing the two view panel.')
+        slicer.app.layoutManager().sliceWidget("vtkMRMLSliceNode1").sliceController().pinButton().click()
+        slicer.app.layoutManager().sliceWidget("vtkMRMLSliceNode3").sliceController().pinButton().click()
 
+        # 8 shot
         skull = slicer.util.getNode(pattern='skull_bone')
         skull.GetDisplayNode().SetVisibility(0)
 
@@ -112,8 +136,33 @@ class Slicer4MinuteTest(ScriptedLoadableModuleTest):
         clip.SetRedSliceClipState(0)
         clip.SetYellowSliceClipState(0)
         clip.SetGreenSliceClipState(2)
-        
+        scrolBar = util.getNamedWidget("PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea").inner()
+        scrolBar.verticalScrollBar().setValue(scrolBar.height)
         self.Tutorial.nextScreenshot()
+        self.delayDisplay('Screenshot #9: Select hemispheric_white_matter, click in the clipping and change the clip state of the node.')
+
+        # 10 shot
+        cam.GetCamera().Elevation(10)
+        green.SetSliceOffset(-10)
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay('Screenshot #10: Rotate the camera to see the optical nerve.')
+        
+        # 11 shot
+        scrolBar.verticalScrollBar().setValue(0)
+        skin.GetDisplayNode().SetOpacity(0.5)
+        nodeList.setCurrentNode(skin)
+        layoutManager.setLayout(slicer.vtkMRMLLayoutNode.SlicerLayoutOneUp3DView)
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay('Screenshot #11: Change the layout to 3D View only.')
+
+        # 12 shot
+        cam.GetCamera().Azimuth(-90)
+        cam.GetCamera().Elevation(0)
+        slicer.util.findChildren(name="PinButton")[3].click()
+        slicer.util.findChildren(name="SpinButton")[0].click()
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay('Screenshot #11: Active the 3D view spin button.')
+        slicer.util.findChildren(name="PinButton")[3].click()
 
 
         self.Tutorial.endTutorial()

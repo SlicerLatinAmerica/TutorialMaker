@@ -60,6 +60,7 @@ class TutorialMakerWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
         self._updatingGUIFromParameterNode = False
         self.__tableSize = 0
         self.__selectedTutorial = None
+        self.isDebug = False
 
         #PROTOTYPE FOR PLAYBACK
 
@@ -95,8 +96,11 @@ class TutorialMakerWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
 
         #Static Tutorial Handlers
         self.ui.pushButtonAnnotate.connect('clicked(bool)', self.annotateButton)
-        self.ui.pushButtonNewTutorial.connect('clicked(bool)', self.CreateTutorialButton)
-        
+        if not self.isDebug:
+            self.ui.CollapsibleButtonTutorialMaking.setVisible(0)
+            self.ui.pushButtonTestPainter.connect('clicked(bool)', self.testPainterButton)
+            self.ui.pushButtonTestPainter.setVisible(0)
+
         # Make sure parameter node is initialized (needed for module reload)
         self.initializeParameterNode()
 
@@ -158,7 +162,8 @@ class TutorialMakerWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
     def tutorialSelectionChanged(self):
         self.__selectedTutorial = self.ui.listWidgetTutorials.selectedItems()[0].data(0)
         self.ui.pushButtonAnnotate.setEnabled(not (self.__selectedTutorial is None))
-        self.ui.pushButtonNewTutorial.setEnabled(not (self.__selectedTutorial is None))
+        if self.isDebug:
+            self.ui.pushButtonTestPainter.setEnabled(not (self.__selectedTutorial is None))
 
     
     def populateTutorialList(self):

@@ -70,6 +70,7 @@ class TutorialGUI(qt.QMainWindow):
         height = 780
 
         self.setFixedSize(width, height)
+        self.setWindowTitle("TutorialMaker - Annotator")
 
         children = self.uiWidget.children()
         # for child in children:
