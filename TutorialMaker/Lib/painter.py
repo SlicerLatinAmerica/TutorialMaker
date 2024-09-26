@@ -81,7 +81,7 @@ class ImageDrawer:
         # Add text below the rectangle
         if text:
             # Create a background rectangle for the text
-            text_item = qt.QGraphicsTextItem(text)
+            text_item = qt.QGraphicsTextItem(self.wrap_text(text))
             text_item.setDefaultTextColor(text_color)
             font = qt.QFont()
             font.setPixelSize(font_size)
@@ -239,7 +239,7 @@ class ImageDrawer:
         # Return the angle in degrees
         return deg
     
-    def add_text_with_background(self, text, end_x, end_y, font_size, text_color=qt.Qt.black):
+    def add_text_with_background(self, text, end_x, end_y, font_size, back_color ,text_color=qt.Qt.black):
         """
         Add text with a background rectangle to the scene.
 
@@ -278,7 +278,7 @@ class ImageDrawer:
             text_rect.width(),
             text_rect.height() + 5
         )
-        text_background.setBrush(qt.QBrush(qt.Qt.white))
+        text_background.setBrush(qt.QBrush(back_color))
 
         # Add the background rectangle and the text item to the scene
         self.scene.addItem(text_background)
@@ -331,7 +331,34 @@ class ImageDrawer:
         self.scene.addItem(path_item)
 
         if text:
-            self.add_text_with_background(text, end_x, end_y, font_size + 10 , qt.Qt.black)
+            # Calculate direction and set text offset accordingly
+            offset_x = 0
+            offset_y = 0
+            size_len_text = len(text) 
+            offset_text = 0.56
+            if(len(text)>30):
+                # Condicional para flecha que va a la derecha
+                if end_x > start_x and abs(end_y - start_y) <= abs(end_x - start_x):
+                    offset_x =  size_len_text * offset_text
+                    offset_y =  0
+                # Condicional para flecha que va a la izquierda
+                elif end_x < start_x and abs(end_y - start_y) <= abs(end_x - start_x):
+                    offset_x = - size_len_text * offset_text
+                    offset_y = 0 
+
+                # Condicional para flecha que va hacia abajo
+                elif end_y > start_y and abs(end_y - start_y) > abs(end_x - start_x):
+                    offset_x = 0 
+                    offset_y = size_len_text * offset_text  
+
+                # Condicional para flecha que va hacia arriba
+                elif end_y < start_y and abs(end_y - start_y) > abs(end_x - start_x):
+                    offset_x = 0 
+                    offset_y = - size_len_text * offset_text
+
+            # Add text with offset
+            self.add_text_with_background(self.wrap_text(text), end_x + offset_x, end_y + offset_y, font_size + 10, qt.QColor.fromRgb(*color), qt.Qt.black)
+
 
 
     def draw_click(self, x, y, text, font_size, text_color=qt.Qt.black):
@@ -545,3 +572,81 @@ class ImageDrawer:
         
             pass
             
+    def wrap_text(self, text, line_length=30):
+        """
+        Wraps and justifies a given text into multiple lines, ensuring that each line
+        does not exceed a specified character limit, and attempting to justify 
+        the text (even spacing between words).
+
+        Parameters:
+        text (str): The input text to be wrapped and justified.
+        line_length (int, optional): The maximum number of characters allowed 
+                                    per line. Default is 30.
+
+        Returns:
+        str: The input text split into justified lines, where each line is at most 
+            `line_length` characters long.
+        """
+        # List to store the formatted lines
+        lines = []
+        
+        # Current line being constructed
+        current_line = ''
+        
+        # Split the text into words
+        words = text.split()
+        
+        # Iterate through each word in the text
+        for word in words:
+            # Check if adding the word to the current line will exceed the character limit
+            if len(current_line) + len(word) + 1 <= line_length:
+                # If it fits, add the word to the current line with a space
+                current_line += word + ' '
+            else:
+                # Justify the current line (if it's not the last line)
+                justified_line = self.justify_line(current_line.strip(), line_length)
+                lines.append(justified_line)
+                # Start a new line with the current word
+                current_line = word + ' '
+        
+        # Add any remaining text in the current line to the list of lines (without justification)
+        if current_line:
+            lines.append(current_line.strip())
+        
+        # Join the lines with new line characters and return the result
+        return '\n'.join(lines)
+
+    def justify_line(self, line, line_length):
+        """
+        Justifies a single line by adding extra spaces between words 
+        so that the line length matches `line_length`.
+
+        Parameters:
+        line (str): The line of text to be justified.
+        line_length (int): The desired length of the line.
+
+        Returns:
+        str: The justified line of text.
+        """
+        words = line.split()
+        
+        # If the line contains only one word, return it as is
+        if len(words) == 1:
+            return line
+        
+        # Calculate the number of spaces needed to justify the line
+        total_spaces = line_length - len(line) + (len(words) - 1)
+        
+        # Calculate how many spaces to add between each word
+        space_between_words = total_spaces // (len(words) - 1)
+        extra_spaces = total_spaces % (len(words) - 1)
+        
+        # Create the justified line by adding spaces between words
+        justified_line = ''
+        for i, word in enumerate(words[:-1]):
+            justified_line += word + ' ' * (space_between_words + (1 if i < extra_spaces else 0))
+        
+        # Add the last word without extra spaces
+        justified_line += words[-1]
+        
+        return justified_line

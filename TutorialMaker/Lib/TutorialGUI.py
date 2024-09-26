@@ -8,7 +8,11 @@ from Lib.Anotations import Notes
 from Lib.FileMDHTML import markdownHTMLCreator
 import Lib.painter as AnnotationPainter
 from slicer import qMRMLWidget
+from slicer.i18n import tr as _
 
+#create_toolbar_edit
+#draw_annotations
+#draw_preview
 ListPositionWhite = []
 List_totalImages = []
 
@@ -29,7 +33,7 @@ class TutorialGUI(qt.QMainWindow):
 
         self.drawing = False
         self.scree_prev = -1
-        self.selected_color = qt.QColor(254, 254, 254)
+        self.selected_color = qt.QColor(255, 128, 0)
 
         self.title = ""
         self.author = ""
@@ -226,13 +230,13 @@ class TutorialGUI(qt.QMainWindow):
     def create_toolbar_edit(self):
         toolbar = qt.QToolBar("Edit", self)
         
-        self.action7 = qt.QAction(qt.QIcon(self.dir_path+'/../Resources/Icons/ScreenshotAnnotator/color.png'), "color", self)
+        self.action7 = qt.QAction(qt.QIcon(self.dir_path+'/../Resources/Icons/ScreenshotAnnotator/color.png'), _("color"), self)
         toolbar.addAction(self.action7)
         self.action7.triggered.connect(self.change_color)
 
         self.valor = 3
         self.spin_box = qt.QSpinBox()
-        self.spin_box.setSuffix(" thick.")
+        self.spin_box.setSuffix(_(" thick."))
         self.spin_box.setMinimum(1)
         self.spin_box.setMaximum(15)
         self.spin_box.setSingleStep(1)
@@ -240,7 +244,7 @@ class TutorialGUI(qt.QMainWindow):
         toolbar.addWidget(self.spin_box)
         self.spin_box.valueChanged.connect(self.actualizar_valor)
 
-        self.fill_annot = qt.QAction(qt.QIcon(self.dir_path+'/../Resources/Icons/ScreenshotAnnotator/fill_u.png'), "Fill", self)
+        self.fill_annot = qt.QAction(qt.QIcon(self.dir_path+'/../Resources/Icons/ScreenshotAnnotator/fill_u.png'), _("Fill"), self)
         self.fill_annot.setCheckable(True)
         self.fill = False
         toolbar.addAction(self.fill_annot)
@@ -256,15 +260,14 @@ class TutorialGUI(qt.QMainWindow):
         self.spin_box_txt.valueChanged.connect(self.actualizar_size)
 
         self.text_in = qt.QLineEdit()
-        self.text_in.setMaxLength(100)
+        self.text_in.setMaxLength(500)
         self.text_in.setFixedWidth(590)
         self.widget_action = qt.QWidgetAction(self)
         self.widget_action.setDefaultWidget(self.text_in)
         toolbar.addAction(self.widget_action)
 
-        self.load_icon = qt.QAction(qt.QIcon(self.dir_path+'/../Resources/Icons/ScreenshotAnnotator/image.png'), "Load icon", self)
+        self.load_icon = qt.QAction(qt.QIcon(self.dir_path+'/../Resources/Icons/ScreenshotAnnotator/image.png'), _("Load icon"), self)
         self.load_icon.setCheckable(True)
-        #toolbar.addAction(self.load_icon)
         self.new_image = qt.QPixmap(20, 20)
         self.dir_icon = None
         self.open_icon()
@@ -1279,12 +1282,9 @@ class TutorialGUI(qt.QMainWindow):
         return new_point
 
     def draw_annotations(self):
-        # print("Paint annotation on ", self.scree_prev)
         pixmap = self.label_image.pixmap
-        # print("pixmap", pixmap)
         painter = qt.QPainter(pixmap)
         painter.drawPixmap(self.label_image.rect, self.background_image)
-        # painter.setRenderHint(qt.QPainter.Antialiasing)
 
         for antts in self.annotations[self.scree_prev]:
             pen = qt.QPen(antts.cl)
@@ -1302,54 +1302,51 @@ class TutorialGUI(qt.QMainWindow):
                 painter.drawPath(self.arrowPath(antts.tp, antts.ip, antts.fp))
                 pen = qt.QPen(qt.QColor(255, 255, 255))
                 painter.setPen(pen)
-                painter.setBrush(qt.QBrush(qt.QColor(255, 255, 255)))
-                font_small = qt.QFont("Arial", 14)
+                painter.setBrush(qt.QBrush(qt.QColor(antts.cl)))
+                font_small = qt.QFont("Arial", 13)
                 painter.setFont(font_small)
-                bg_h = 16 * len(txt) + 3
-                if antts.ip.y() > antts.fp.y():
-                    #print("La flecha apunta hacia abajo")
-                    tb_i = qt.QPoint(antts.fp.x()-100, antts.fp.y()-bg_h)
-                    tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                    painter.drawRect(qt.QRect(tb_i, tb_f))
-                    pen = qt.QPen(qt.QColor(0, 0, 0))
-                    painter.setPen(pen)
-                    y_position = 16
-                    for r in txt:
-                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                        y_position+=16
-                elif antts.ip.y() < antts.fp.y():
-                    #print("La flecha apunta hacia arriba")
-                    tb_i = qt.QPoint(antts.fp.x()-100, antts.fp.y())
-                    tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                    painter.drawRect(qt.QRect(tb_i, tb_f))
-                    pen = qt.QPen(qt.QColor(0, 0, 0))
-                    painter.setPen(pen)
-                    y_position = 16
-                    for r in txt:
-                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                        y_position+=16
-                elif antts.ip.x() > antts.fp.x():
-                    #print("La flecha apunta hacia la derecha")
-                    tb_i = qt.QPoint(antts.fp.x()-200, antts.fp.y()-10)
-                    tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                    painter.drawRect(qt.QRect(tb_i, tb_f))
-                    pen = qt.QPen(qt.QColor(0, 0, 0))
-                    painter.setPen(pen)
-                    y_position = 16
-                    for r in txt:
-                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                        y_position+=16
-                elif antts.ip.x() < antts.fp.x():
-                    #print("La flecha apunta hacia la izquierda")
-                    tb_i = qt.QPoint(antts.fp.x(), antts.fp.y()-10)
-                    tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                    painter.drawRect(qt.QRect(tb_i, tb_f))
-                    pen = qt.QPen(qt.QColor(0, 0, 0))
-                    painter.setPen(pen)
-                    y_position = 16
-                    for r in txt:
-                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                        y_position+=16
+                if len(txt) > 0:
+                    bg_h = 16 * len(txt) + 3
+                    if antts.ip.y() > antts.fp.y():
+                        tb_i = qt.QPoint(antts.fp.x()-100, antts.fp.y()-bg_h)
+                        tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                        painter.drawRect(qt.QRect(tb_i, tb_f))
+                        pen = qt.QPen(qt.QColor(0, 0, 0))
+                        painter.setPen(pen)
+                        y_position = 16
+                        for r in txt:
+                            painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                            y_position+=16
+                    elif antts.ip.y() < antts.fp.y():
+                        tb_i = qt.QPoint(antts.fp.x()-100, antts.fp.y())
+                        tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                        painter.drawRect(qt.QRect(tb_i, tb_f))
+                        pen = qt.QPen(qt.QColor(0, 0, 0))
+                        painter.setPen(pen)
+                        y_position = 16
+                        for r in txt:
+                            painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                            y_position+=16
+                    elif antts.ip.x() > antts.fp.x():
+                        tb_i = qt.QPoint(antts.fp.x()-250, antts.fp.y()-10)
+                        tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                        painter.drawRect(qt.QRect(tb_i, tb_f))
+                        pen = qt.QPen(qt.QColor(0, 0, 0))
+                        painter.setPen(pen)
+                        y_position = 16
+                        for r in txt:
+                            painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                            y_position+=16
+                    elif antts.ip.x() < antts.fp.x():
+                        tb_i = qt.QPoint(antts.fp.x(), antts.fp.y()-10)
+                        tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                        painter.drawRect(qt.QRect(tb_i, tb_f))
+                        pen = qt.QPen(qt.QColor(0, 0, 0))
+                        painter.setPen(pen)
+                        y_position = 16
+                        for r in txt:
+                            painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                            y_position+=16
             elif antts.tp == "icon":
                 painter.drawImage(antts.ip, qt.QImage(antts.tx))
             elif antts.tp == "text":
@@ -1361,12 +1358,9 @@ class TutorialGUI(qt.QMainWindow):
         self.label_image.setPixmap(pixmap)
 
     def draw_preview(self, antt):
-        #print("draw annotation preview:", antt.tp)
         pixmap = self.label_image.pixmap
-        # print("pixmap", pixmap)
         painter = qt.QPainter(pixmap)
         painter.drawPixmap(self.label_image.rect, self.background_image)
-        # painter.setRenderHint(qt.QPainter.Antialiasing)
 
         for antts in self.annotations[self.scree_prev]:
             pen = qt.QPen(antts.cl)
@@ -1384,103 +1378,57 @@ class TutorialGUI(qt.QMainWindow):
                 painter.drawPath(self.arrowPath(antts.tp, antts.ip, antts.fp))
                 pen = qt.QPen(qt.QColor(255, 255, 255))
                 painter.setPen(pen)
-                painter.setBrush(qt.QBrush(qt.QColor(255, 255, 255)))
-                font_small = qt.QFont("Arial", 14)
+                painter.setBrush(qt.QBrush(qt.QColor(antts.cl)))
+                font_small = qt.QFont("Arial", 13)
                 painter.setFont(font_small)
-                bg_h = 16 * len(txt) + 3
-                if antts.ip.y() > antts.fp.y():
-                    #print("La flecha apunta hacia abajo")
-                    tb_i = qt.QPoint(antts.fp.x()-100, antts.fp.y()-bg_h)
-                    tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                    painter.drawRect(qt.QRect(tb_i, tb_f))
-                    pen = qt.QPen(qt.QColor(0, 0, 0))
-                    painter.setPen(pen)
-                    y_position = 16
-                    for r in txt:
-                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                        y_position+=16
-                elif antts.ip.y() < antts.fp.y():
-                    #print("La flecha apunta hacia arriba")
-                    tb_i = qt.QPoint(antts.fp.x()-100, antts.fp.y())
-                    tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                    painter.drawRect(qt.QRect(tb_i, tb_f))
-                    pen = qt.QPen(qt.QColor(0, 0, 0))
-                    painter.setPen(pen)
-                    y_position = 16
-                    for r in txt:
-                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                        y_position+=16
-                elif antts.ip.x() > antts.fp.x():
-                    #print("La flecha apunta hacia la derecha")
-                    tb_i = qt.QPoint(antts.fp.x()-200, antts.fp.y()-10)
-                    tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                    painter.drawRect(qt.QRect(tb_i, tb_f))
-                    pen = qt.QPen(qt.QColor(0, 0, 0))
-                    painter.setPen(pen)
-                    y_position = 16
-                    for r in txt:
-                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                        y_position+=16
-                elif antts.ip.x() < antts.fp.x():
-                    #print("La flecha apunta hacia la izquierda")
-                    tb_i = qt.QPoint(antts.fp.x(), antts.fp.y()-10)
-                    tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                    painter.drawRect(qt.QRect(tb_i, tb_f))
-                    pen = qt.QPen(qt.QColor(0, 0, 0))
-                    painter.setPen(pen)
-                    y_position = 16
-                    for r in txt:
-                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                        y_position+=16
+                if len(txt) > 0:
+                    bg_h = 16 * len(txt) + 3
+                    if antts.ip.y() > antts.fp.y():
+                        tb_i = qt.QPoint(antts.fp.x()-100, antts.fp.y()-bg_h)
+                        tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                        painter.drawRect(qt.QRect(tb_i, tb_f))
+                        pen = qt.QPen(qt.QColor(0, 0, 0))
+                        painter.setPen(pen)
+                        y_position = 16
+                        for r in txt:
+                            painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                            y_position+=16
+                    elif antts.ip.y() < antts.fp.y():
+                        tb_i = qt.QPoint(antts.fp.x()-100, antts.fp.y())
+                        tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                        painter.drawRect(qt.QRect(tb_i, tb_f))
+                        pen = qt.QPen(qt.QColor(0, 0, 0))
+                        painter.setPen(pen)
+                        y_position = 16
+                        for r in txt:
+                            painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                            y_position+=16
+                    elif antts.ip.x() > antts.fp.x():
+                        tb_i = qt.QPoint(antts.fp.x()-250, antts.fp.y()-10)
+                        tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                        painter.drawRect(qt.QRect(tb_i, tb_f))
+                        pen = qt.QPen(qt.QColor(0, 0, 0))
+                        painter.setPen(pen)
+                        y_position = 16
+                        for r in txt:
+                            painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                            y_position+=16
+                    elif antts.ip.x() < antts.fp.x():
+                        tb_i = qt.QPoint(antts.fp.x(), antts.fp.y()-10)
+                        tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                        painter.drawRect(qt.QRect(tb_i, tb_f))
+                        pen = qt.QPen(qt.QColor(0, 0, 0))
+                        painter.setPen(pen)
+                        y_position = 16
+                        for r in txt:
+                            painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                            y_position+=16
             elif antts.tp == "icon":
                 painter.drawImage(antts.ip, qt.QImage(antts.tx))
             elif antts.tp == "text":
                 font_small = qt.QFont("Arial", antts.tk)
                 painter.setFont(font_small)
                 painter.drawText(antts.ip.x(), antts.ip.y(), antts.tx)
-
-        # For preview annotations
-        wdgts_child = self.widget_collection[self.w_i]
-        x_i, y_i = wdgts_child["position"]
-        w, h = wdgts_child["size"]
-
-        # td = int(w / 3)
-        # bd = int(h / 3)
-
-        # p1 =  self.remap_point(qt.QPoint(x_i, y_i))
-        # p2 =  self.remap_point(qt.QPoint(x_i + td * 1, y_i))
-        # p3 =  self.remap_point(qt.QPoint(x_i + td * 2, y_i))
-        # p4 =  self.remap_point(qt.QPoint(x_i + w, y_i))
-        # p5 =  self.remap_point(qt.QPoint(x_i + w, y_i + bd * 1))
-        # p6 =  self.remap_point(qt.QPoint(x_i + w, y_i + bd * 2))
-        # p7 =  self.remap_point(qt.QPoint(x_i + w, y_i + h))
-        # p8 =  self.remap_point(qt.QPoint(x_i + td * 2, y_i + h))
-        # p9 =  self.remap_point(qt.QPoint(x_i + td * 1, y_i + h))
-        # p10 = self.remap_point(qt.QPoint(x_i, y_i + h))
-        # p11 = self.remap_point(qt.QPoint(x_i, y_i + bd * 2))
-        # p12 = self.remap_point(qt.QPoint(x_i, y_i + bd * 1))
-
-        # pen = qt.QPen(qt.QColor(255, 255, 255))
-        # painter.setPen(pen)
-        # painter.drawLine(p1, p7)
-        # pen = qt.QPen(qt.QColor(255, 0, 0))
-        # painter.setPen(pen)
-        # painter.drawLine(p2, p8)
-        # pen = qt.QPen(qt.QColor(255, 0, 0))
-        # painter.setPen(pen)
-        # painter.drawLine(p3, p9)
-        # pen = qt.QPen(qt.QColor(255, 255, 255))
-        # painter.setPen(pen)
-        # painter.drawLine(p4, p10)
-        # pen = qt.QPen(qt.QColor(255, 0, 0))
-        # painter.setPen(pen)
-        # painter.drawLine(p5, p11)
-        # pen = qt.QPen(qt.QColor(255, 0, 0))
-        # painter.setPen(pen)
-        # painter.drawLine(p6, p12)
-        # pen = qt.QPen(qt.QColor(0, 0, 255))
-        # painter.setPen(pen)
-        # painter.drawLine(p6, p12)
 
         pen = qt.QPen(antt.cl)
         pen.setWidth(antt.tk)
@@ -1494,60 +1442,55 @@ class TutorialGUI(qt.QMainWindow):
         elif antt.tp == "click":
             painter.drawImage(antt.ip, self.new_image)
         elif antt.tp == "arwT":
-            # print('antt.tx:',antt.tx)
-            # print('tamaño:',len(antt.tx))
             txt = self.split_string_to_dict(antt.tx)
             painter.drawPath(self.arrowPath(antt.tp, antt.ip, antt.fp))
             pen = qt.QPen(qt.QColor(255, 255, 255))
             painter.setPen(pen)
-            painter.setBrush(qt.QBrush(qt.QColor(255, 255, 255)))
-            font_small = qt.QFont("Arial", 14)
+            painter.setBrush(qt.QBrush(self.selected_color)) #self.selected_color
+            font_small = qt.QFont("Arial", 13)
             painter.setFont(font_small)
-            bg_h = 16 * len(txt) + 3
-            if antt.ip.y() > antt.fp.y():
-                #print("La flecha apunta hacia abajo")
-                tb_i = qt.QPoint(antt.fp.x()-100, antt.fp.y()-bg_h)
-                tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                painter.drawRect(qt.QRect(tb_i, tb_f))
-                pen = qt.QPen(qt.QColor(0, 0, 0))
-                painter.setPen(pen)
-                y_position = 16
-                for r in txt:
-                    painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                    y_position+=16
-            elif antt.ip.y() < antt.fp.y():
-                #print("La flecha apunta hacia arriba")
-                tb_i = qt.QPoint(antt.fp.x()-100, antt.fp.y())
-                tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                painter.drawRect(qt.QRect(tb_i, tb_f))
-                pen = qt.QPen(qt.QColor(0, 0, 0))
-                painter.setPen(pen)
-                y_position = 16
-                for r in txt:
-                    painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                    y_position+=16               
-            elif antt.ip.x() > antt.fp.x():
-                #print("La flecha apunta hacia la derecha")
-                tb_i = qt.QPoint(antt.fp.x()-200, antt.fp.y()-10)
-                tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                painter.drawRect(qt.QRect(tb_i, tb_f))
-                pen = qt.QPen(qt.QColor(0, 0, 0))
-                painter.setPen(pen)
-                y_position = 16
-                for r in txt:
-                    painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                    y_position+=16
-            elif antt.ip.x() < antt.fp.x():
-                #print("La flecha apunta hacia la izquierda")
-                tb_i = qt.QPoint(antt.fp.x(), antt.fp.y()-10)
-                tb_f = qt.QPoint(tb_i.x()+200, tb_i.y()+bg_h)
-                painter.drawRect(qt.QRect(tb_i, tb_f))
-                pen = qt.QPen(qt.QColor(0, 0, 0))
-                painter.setPen(pen)
-                y_position = 16
-                for r in txt:
-                    painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
-                    y_position+=16
+            if len(txt) > 0:
+                bg_h = 16 * len(txt) + 3
+                if antt.ip.y() > antt.fp.y():
+                    tb_i = qt.QPoint(antt.fp.x()-100, antt.fp.y()-bg_h)
+                    tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                    painter.drawRect(qt.QRect(tb_i, tb_f))
+                    pen = qt.QPen(qt.QColor(0, 0, 0))
+                    painter.setPen(pen)
+                    y_position = 16
+                    for r in txt:
+                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                        y_position+=16
+                elif antt.ip.y() < antt.fp.y():
+                    tb_i = qt.QPoint(antt.fp.x()-100, antt.fp.y())
+                    tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                    painter.drawRect(qt.QRect(tb_i, tb_f))
+                    pen = qt.QPen(qt.QColor(0, 0, 0))
+                    painter.setPen(pen)
+                    y_position = 16
+                    for r in txt:
+                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                        y_position+=16               
+                elif antt.ip.x() > antt.fp.x():
+                    tb_i = qt.QPoint(antt.fp.x()-250, antt.fp.y()-10)
+                    tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                    painter.drawRect(qt.QRect(tb_i, tb_f))
+                    pen = qt.QPen(qt.QColor(0, 0, 0))
+                    painter.setPen(pen)
+                    y_position = 16
+                    for r in txt:
+                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                        y_position+=16
+                elif antt.ip.x() < antt.fp.x():
+                    tb_i = qt.QPoint(antt.fp.x(), antt.fp.y()-10)
+                    tb_f = qt.QPoint(tb_i.x()+250, tb_i.y()+bg_h)
+                    painter.drawRect(qt.QRect(tb_i, tb_f))
+                    pen = qt.QPen(qt.QColor(0, 0, 0))
+                    painter.setPen(pen)
+                    y_position = 16
+                    for r in txt:
+                        painter.drawText(tb_i.x()+5, tb_i.y()+y_position, r)
+                        y_position+=16
         elif antt.tp == "icon":
             painter.drawImage(antt.ip, qt.QImage(antt.tx))
         elif antt.tp == "text":
