@@ -65,26 +65,34 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
     def runVisualizationTutorialPart3(self):
         # 1 shot:
         self.mainWindow.moduleSelector().selectModule("Welcome")
-        self.layoutManager.setLayout(slicer.vtkMRMLLayoutNode.SlicerLayoutConventionalView)
+        self.layoutManager.setLayout(
+            slicer.vtkMRMLLayoutNode.SlicerLayoutConventionalView
+        )
         self.Tutorial.nextScreenshot()
         self.delayDisplay("Screenshot #1: In the Welcome screen.")
 
         # 2 shot:
-        TESTING_DATA_URL = "https://github.com/Slicer/SlicerTestingData/releases/download/"
+        TESTING_DATA_URL = (
+            "https://github.com/Slicer/SlicerTestingData/releases/download/"
+        )
 
         try:
             SampleData.downloadFromURL(
-                fileNames='slicer4minute.mrb',
+                fileNames="slicer4minute.mrb",
                 loadFiles=True,
-                uris=TESTING_DATA_URL + 'SHA256/5a1c78c3347f77970b1a29e718bfa10e5376214692d55a7320af94b9d8d592b8',
-                checksums='SHA256:5a1c78c3347f77970b1a29e718bfa10e5376214692d55a7320af94b9d8d592b8')
-            self.delayDisplay('Finished with download and loading')
+                uris=TESTING_DATA_URL
+                + "SHA256/5a1c78c3347f77970b1a29e718bfa10e5376214692d55a7320af94b9d8d592b8",
+                checksums="SHA256:5a1c78c3347f77970b1a29e718bfa10e5376214692d55a7320af94b9d8d592b8",
+            )
+            self.delayDisplay("Finished with download and loading")
         except:
             pass
 
-        self.mainWindow.moduleSelector().selectModule('Models')
+        self.mainWindow.moduleSelector().selectModule("Models")
         self.Tutorial.nextScreenshot()
-        self.delayDisplay('Screenshot #2: In the Models screen with the sample data loaded.')
+        self.delayDisplay(
+            "Screenshot #2: In the Models screen with the sample data loaded."
+        )
 
         # 3 shot:
         self.pin_buttons = {
@@ -109,7 +117,9 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         self.red_slice_node.SetSliceOffset(red_slice_position)
 
         self.Tutorial.nextScreenshot()
-        self.delayDisplay("Screenshot #3: Red slice plane adjusted to position -32 and its visibility toggled on.")
+        self.delayDisplay(
+            "Screenshot #3: Red slice plane adjusted to position -32 and its visibility toggled on."
+        )
 
         # 4 shot:
         skin = slicer.util.getNode(pattern="Skin")
@@ -144,14 +154,20 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         )
 
         # 7 shot:
-        hemispheric_white_matter_display_node = slicer.util.getNode(pattern="hemispheric_white_matter").GetDisplayNode()
+        hemispheric_white_matter_display_node = slicer.util.getNode(
+            pattern="hemispheric_white_matter"
+        ).GetDisplayNode()
 
         hemispheric_white_matter_display_node.SetClipping(True)
 
-        red_plane = self.util.getNamedWidget("PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/ModelsModuleWidget/ClippingButton/MRMLClipNodeWidget/RedSliceClippingCheckBox")
+        red_plane = self.util.getNamedWidget(
+            "PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/ModelsModuleWidget/ClippingButton/MRMLClipNodeWidget/RedSliceClippingCheckBox"
+        )
         red_plane.click()
 
-        green_plane = self.util.getNamedWidget("PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/ModelsModuleWidget/ClippingButton/MRMLClipNodeWidget/GreenSliceClippingCheckBox")
+        green_plane = self.util.getNamedWidget(
+            "PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/ModelsModuleWidget/ClippingButton/MRMLClipNodeWidget/GreenSliceClippingCheckBox"
+        )
         green_plane.click()
 
         self.Tutorial.nextScreenshot()
@@ -177,4 +193,3 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         self.delayDisplay(
             "Screenshot #9: Final visualization with adjusted camera elevation (40°) and zoom level (0.8x)."
         )
-
