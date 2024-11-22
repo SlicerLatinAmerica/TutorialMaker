@@ -1,5 +1,7 @@
 # https://github.com/spujol/SlicerVisualizationTutorial/blob/master/SlicerVisualizationTutorial_SoniaPujol.pdf
+import os
 import slicer
+import zipfile
 import SampleData
 
 import Lib.utils as utils
@@ -7,7 +9,6 @@ import Lib.utils as utils
 from slicer.ScriptedLoadableModule import *
 
 # VisualizationTutorial
-
 
 class VisualizationTutorialTest(ScriptedLoadableModuleTest):
     """
@@ -57,7 +58,95 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         self.delayDisplay("Test passed!")
 
     def runVisualizationTutorialPart1(self):
-        pass
+        # 1 shot:
+        self.mainWindow.moduleSelector().selectModule("Welcome")
+        self.layoutManager.setLayout(
+            slicer.vtkMRMLLayoutNode.SlicerLayoutConventionalView
+        )
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #1: In the Welcome screen.")
+
+        # 2 shot:
+        self.downloadAndLoadZip()
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #2: Loaded the sample dataset.")
+
+        # 3 shot:
+        scroll_area = self.util.getNamedWidget("CentralWidget/CentralWidgetLayoutFrame/QWidget:0/SlicerDICOMBrowser/ctkDICOMBrowser/dicomTableManager/tableSplitter/patientsTable/tblDicomDatabaseView").getChildren()
+        load_button = self.util.getNamedWidget("CentralWidget/CentralWidgetLayoutFrame/QWidget:0/SlicerDICOMBrowser/ActionButtonsFrame/QPushButton:2")
+
+        scroll_area[4].click()
+        load_button.click()
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #3: DICOM data loaded into the scene.")
+
+        # 4 shot:
+        self.mainWindow.moduleSelector().selectModule("Volumes")
+
+        ct_button = self.util.getNamedWidget("PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/qSlicerVolumesModuleWidget/DisplayCollapsibleButton/VolumeDisplayWidget/qSlicerScalarVolumeDisplayWidget/PresetsGroupBox/CT_ABDOMEN")
+        ct_button.click()
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #4: Applied 'CT Abdomen' display preset.")
+
+        # 5 shot:
+        pin_buttons = {
+            color: self.util.getNamedWidget(
+                f"{self.CENTRAL_WIDGETS_PATH}{color}/SliceController/BarWidget/PinButton"
+            )
+            for color in self.COLORS
+        }
+
+        link_button = self.util.getNamedWidget("CentralWidget/CentralWidgetLayoutFrame/QSplitter:0/QWidget:0/qMRMLSliceWidgetRed/SliceController/qMRMLSliceControllerWidget/SliceFrame/SliceLinkButton")
+
+        visibility_buttons = {
+            color: self.util.getNamedWidget(
+                f"{self.CENTRAL_WIDGETS_PATH}{color}/SliceController/qMRMLSliceControllerWidget/SliceFrame/SliceVisibilityButton"
+            )
+            for color in self.COLORS
+        }
+
+        pin_buttons["Red"].click()
+        link_button.click()
+        visibility_buttons["Red"].click()
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #5: Linked and activated red slice plane.")
+
+        # 6 shot:
+        self.layoutManager.setLayout(slicer.vtkMRMLLayoutNode.SlicerLayoutConventionalWidescreenView)
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #6: Set widescreen layout.")
+
+        # 7 shot:
+        cam = slicer.util.getNode(pattern="vtkMRMLCameraNode1")
+        cam.GetCamera().Zoom(0.4)
+    
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #7: Zoomed in on the region of interest.")
+
+        # 8 shot:
+        cam.GetCamera().Azimuth(60)
+        cam.GetCamera().Elevation(30)
+    
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #8: Rotated view (60° azimuth, 30° elevation).")
+
+        # 9 shot:
+        center_button = self.util.getNamedWidget("CentralWidget/CentralWidgetLayoutFrame/QSplitter:0/ThreeDWidget1/qMRMLThreeDViewControllerWidget:0/qMRMLThreeDViewControllerWidget/CenterButton")
+        center_button.click()
+    
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #9: Centered the 3D view.")
+
+        # 10 shot:
+        self.mainWindow.moduleSelector().selectModule("VolumeRendering")
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #10: Switched to 'Volume Rendering' module.")
+
 
     def runVisualizationTutorialPart2(self):
         pass
@@ -193,3 +282,27 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         self.delayDisplay(
             "Screenshot #9: Final visualization with adjusted camera elevation (40°) and zoom level (0.8x)."
         )
+    
+    def downloadAndLoadZip(self):
+        zip_url = "https://www.dropbox.com/s/03emcqnlec4t2s5/3DVisualizationDataset.zip?dl=1"
+        zip_file_name = "3DVisualizationDataset.zip"
+        extraction_subfolder = "3DVisualizationDataset/dataset1_Thorax_Abdomen"
+        
+        zip_file_path = os.path.join(slicer.app.temporaryPath, zip_file_name)
+        
+        try:
+            if not os.path.exists(zip_file_path):
+                slicer.util.downloadFile(zip_url, zip_file_path)
+
+            extract_dir = slicer.app.temporaryPath
+            with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+                zip_ref.extractall(extract_dir)
+            
+            dataset_path = os.path.join(extract_dir, extraction_subfolder)
+            
+            for file_name in os.listdir(dataset_path):
+                file_path = os.path.join(dataset_path, file_name)
+                slicer.util.loadNodeFromFile(file_path, properties={})
+            
+        except Exception as e:
+            slicer.util.errorDisplay(f"Error during download or loading: {str(e)}")
