@@ -149,7 +149,77 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
 
 
     def runVisualizationTutorialPart2(self):
-        pass
+        # 1 shot:
+        volumeNode = slicer.util.getNode("6: CT_Thorax_Abdomen")
+
+        volRenLogic = slicer.modules.volumerendering.logic()
+
+        displayNode = volRenLogic.CreateDefaultVolumeRenderingNodes(volumeNode)
+
+        volumePropertyNode = displayNode.GetVolumePropertyNode()
+
+        preset = volRenLogic.GetPresetByName("CT-Cardiac3")
+
+        volumePropertyNode.Copy(preset)
+
+        displayNode.SetVisibility(1)
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #1: Volume rendering enabled with 'CT-Cardiac3'.")
+
+        # 2 shot:
+        layoutManager = slicer.app.layoutManager()
+        threeDWidget = layoutManager.threeDWidget(0)
+        threeDView = threeDWidget.threeDView()
+        threeDView.resetFocalPoint()
+
+        volRenWidget = slicer.modules.volumerendering.widgetRepresentation()
+
+        volumePropertyNodeWidget = slicer.util.findChild(volRenWidget, "VolumePropertyNodeWidget")
+        volumePropertyNodeWidget.setMRMLVolumePropertyNode(volumePropertyNode)
+        volumePropertyNodeWidget.moveAllPoints(250, 0, False)
+
+        cam = slicer.util.getNode(pattern="vtkMRMLCameraNode1")
+        cam.GetCamera().Elevation(-30)
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #2:  Change shift value.")
+
+        # 3 shot:
+        roi_button = self.util.getNamedWidget("PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/qSlicerVolumeRenderingModuleWidget/DisplayCollapsibleButton/ROICropDisplayCheckBox")
+
+        roi_button.click()
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #3: ROI cropping enabled.")
+
+        # 4 shot:
+        displayNode.SetVisibility(0)
+
+        roiNode = slicer.mrmlScene.GetFirstNodeByClass("vtkMRMLMarkupsROINode")
+
+        roiNode.SetXYZ(-66, 144, -225)
+
+        roiNode.SetRadiusXYZ(30, 50, 60)
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #4: ROI position and size adjusted (first configuration).")
+
+        # 5 shot:
+        displayNode.SetVisibility(1)
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #5: Displaying ROI.")
+
+        # 6 shot:
+        roiNode.SetXYZ(0, 144, -225)
+
+        roiNode.SetRadiusXYZ(100, 50, 60)
+
+        self.Tutorial.nextScreenshot()
+        self.delayDisplay("Screenshot #6: ROI position and size adjusted (second configuration).")
+
+        slicer.mrmlScene.Clear(0)
 
     def runVisualizationTutorialPart3(self):
         # 1 shot:
