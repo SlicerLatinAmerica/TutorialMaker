@@ -29,7 +29,10 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
     def test_VisualizationTutorial1(self):
         """Tests parts of the VisualizationTutorial tutorial."""
         self.Tutorial = utils.Tutorial(
-            "Slicer	Welcome", "Sonia Pujol, Ph.D.", "28/08/2024", "description"
+            "Slicer	Visualization Tutorial",
+            "Sonia Pujol, Ph.D.",
+            "24/11/2024",
+            "description",
         )
 
         self.util = utils.util()
