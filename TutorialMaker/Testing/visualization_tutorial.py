@@ -9,6 +9,7 @@ from slicer.ScriptedLoadableModule import *
 
 # VisualizationTutorial
 
+
 class VisualizationTutorialTest(ScriptedLoadableModuleTest):
     """
     This is the test case for your scripted module.
@@ -72,10 +73,13 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         self.Tutorial.nextScreenshot()
         self.delayDisplay("Screenshot #2: Loaded the sample dataset.")
 
-
         # 3 shot:
-        scroll_area = self.util.getNamedWidget("CentralWidget/CentralWidgetLayoutFrame/QWidget:0/SlicerDICOMBrowser/ctkDICOMBrowser/dicomTableManager/tableSplitter/patientsTable/tblDicomDatabaseView").getChildren()
-        load_button = self.util.getNamedWidget("CentralWidget/CentralWidgetLayoutFrame/QWidget:0/SlicerDICOMBrowser/ActionButtonsFrame/QPushButton:2")
+        scroll_area = self.util.getNamedWidget(
+            "CentralWidget/CentralWidgetLayoutFrame/QWidget:0/SlicerDICOMBrowser/ctkDICOMBrowser/dicomTableManager/tableSplitter/patientsTable/tblDicomDatabaseView"
+        ).getChildren()
+        load_button = self.util.getNamedWidget(
+            "CentralWidget/CentralWidgetLayoutFrame/QWidget:0/SlicerDICOMBrowser/ActionButtonsFrame/QPushButton:2"
+        )
 
         scroll_area[4].click()
         load_button.click()
@@ -86,7 +90,9 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         # 4 shot:
         self.mainWindow.moduleSelector().selectModule("Volumes")
 
-        ct_button = self.util.getNamedWidget("PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/qSlicerVolumesModuleWidget/DisplayCollapsibleButton/VolumeDisplayWidget/qSlicerScalarVolumeDisplayWidget/PresetsGroupBox/CT_ABDOMEN")
+        ct_button = self.util.getNamedWidget(
+            "PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/qSlicerVolumesModuleWidget/DisplayCollapsibleButton/VolumeDisplayWidget/qSlicerScalarVolumeDisplayWidget/PresetsGroupBox/CT_ABDOMEN"
+        )
         ct_button.click()
 
         self.Tutorial.nextScreenshot()
@@ -100,7 +106,9 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
             for color in self.COLORS
         }
 
-        link_button = self.util.getNamedWidget("CentralWidget/CentralWidgetLayoutFrame/QSplitter:0/QWidget:0/qMRMLSliceWidgetRed/SliceController/qMRMLSliceControllerWidget/SliceFrame/SliceLinkButton")
+        link_button = self.util.getNamedWidget(
+            "CentralWidget/CentralWidgetLayoutFrame/QSplitter:0/QWidget:0/qMRMLSliceWidgetRed/SliceController/qMRMLSliceControllerWidget/SliceFrame/SliceLinkButton"
+        )
 
         visibility_buttons = {
             color: self.util.getNamedWidget(
@@ -117,7 +125,9 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         self.delayDisplay("Screenshot #5: Linked and activated red slice plane.")
 
         # 6 shot:
-        self.layoutManager.setLayout(slicer.vtkMRMLLayoutNode.SlicerLayoutConventionalWidescreenView)
+        self.layoutManager.setLayout(
+            slicer.vtkMRMLLayoutNode.SlicerLayoutConventionalWidescreenView
+        )
 
         self.Tutorial.nextScreenshot()
         self.delayDisplay("Screenshot #6: Set widescreen layout.")
@@ -125,21 +135,23 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         # 7 shot:
         cam = slicer.util.getNode(pattern="vtkMRMLCameraNode1")
         cam.GetCamera().Zoom(0.4)
-    
+
         self.Tutorial.nextScreenshot()
         self.delayDisplay("Screenshot #7: Zoomed in on the region of interest.")
 
         # 8 shot:
         cam.GetCamera().Azimuth(60)
         cam.GetCamera().Elevation(30)
-    
+
         self.Tutorial.nextScreenshot()
         self.delayDisplay("Screenshot #8: Rotated view (60° azimuth, 30° elevation).")
 
         # 9 shot:
-        center_button = self.util.getNamedWidget("CentralWidget/CentralWidgetLayoutFrame/QSplitter:0/ThreeDWidget1/qMRMLThreeDViewControllerWidget:0/qMRMLThreeDViewControllerWidget/CenterButton")
+        center_button = self.util.getNamedWidget(
+            "CentralWidget/CentralWidgetLayoutFrame/QSplitter:0/ThreeDWidget1/qMRMLThreeDViewControllerWidget:0/qMRMLThreeDViewControllerWidget/CenterButton"
+        )
         center_button.click()
-    
+
         self.Tutorial.nextScreenshot()
         self.delayDisplay("Screenshot #9: Centered the 3D view.")
 
@@ -148,7 +160,6 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
 
         self.Tutorial.nextScreenshot()
         self.delayDisplay("Screenshot #10: Switched to 'Volume Rendering' module.")
-
 
     def runVisualizationTutorialPart2(self):
         # 1 shot:
@@ -177,7 +188,9 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
 
         volRenWidget = slicer.modules.volumerendering.widgetRepresentation()
 
-        volumePropertyNodeWidget = slicer.util.findChild(volRenWidget, "VolumePropertyNodeWidget")
+        volumePropertyNodeWidget = slicer.util.findChild(
+            volRenWidget, "VolumePropertyNodeWidget"
+        )
         volumePropertyNodeWidget.setMRMLVolumePropertyNode(volumePropertyNode)
         volumePropertyNodeWidget.moveAllPoints(250, 0, False)
 
@@ -188,7 +201,9 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         self.delayDisplay("Screenshot #2:  Change shift value.")
 
         # 3 shot:
-        roi_button = self.util.getNamedWidget("PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/qSlicerVolumeRenderingModuleWidget/DisplayCollapsibleButton/ROICropDisplayCheckBox")
+        roi_button = self.util.getNamedWidget(
+            "PanelDockWidget/dockWidgetContents/ModulePanel/ScrollArea/qt_scrollarea_viewport/scrollAreaWidgetContents/qSlicerVolumeRenderingModuleWidget/DisplayCollapsibleButton/ROICropDisplayCheckBox"
+        )
 
         roi_button.click()
 
@@ -205,7 +220,9 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         roiNode.SetRadiusXYZ(30, 50, 60)
 
         self.Tutorial.nextScreenshot()
-        self.delayDisplay("Screenshot #4: ROI position and size adjusted (first configuration).")
+        self.delayDisplay(
+            "Screenshot #4: ROI position and size adjusted (first configuration)."
+        )
 
         # 5 shot:
         displayNode.SetVisibility(1)
@@ -219,7 +236,9 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         roiNode.SetRadiusXYZ(100, 50, 60)
 
         self.Tutorial.nextScreenshot()
-        self.delayDisplay("Screenshot #6: ROI position and size adjusted (second configuration).")
+        self.delayDisplay(
+            "Screenshot #6: ROI position and size adjusted (second configuration)."
+        )
 
         slicer.mrmlScene.Clear(0)
 
@@ -354,15 +373,19 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
         self.delayDisplay(
             "Screenshot #9: Final visualization with adjusted camera elevation (40°) and zoom level (0.8x)."
         )
-    
+
     def downloadAndLoadZip(self):
-        zip_url = "https://www.dropbox.com/s/03emcqnlec4t2s5/3DVisualizationDataset.zip?dl=1"
+        zip_url = (
+            "https://www.dropbox.com/s/03emcqnlec4t2s5/3DVisualizationDataset.zip?dl=1"
+        )
         extraction_subfolder = "3DVisualizationDataset/dataset1_Thorax_Abdomen"
         zip_path = f"{slicer.app.temporaryPath}/3DVisualizationDataset.zip"
 
         urllib.request.urlretrieve(zip_url, zip_path)
-        
-        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+
+        with zipfile.ZipFile(zip_path, "r") as zip_ref:
             zip_ref.extractall(slicer.app.temporaryPath)
 
-        slicer.dicomDatabase.openDatabase(f"{slicer.app.temporaryPath}/{extraction_subfolder}")
+        slicer.dicomDatabase.openDatabase(
+            f"{slicer.app.temporaryPath}/{extraction_subfolder}"
+        )
