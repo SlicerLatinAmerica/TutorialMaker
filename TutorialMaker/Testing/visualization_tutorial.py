@@ -1,8 +1,7 @@
-# https://github.com/spujol/SlicerVisualizationTutorial/blob/master/SlicerVisualizationTutorial_SoniaPujol.pdf
-import os
 import slicer
 import zipfile
 import SampleData
+import urllib.request
 
 import Lib.utils as utils
 
@@ -68,8 +67,11 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
 
         # 2 shot:
         self.downloadAndLoadZip()
+        self.mainWindow.moduleSelector().selectModule("DICOM")
+
         self.Tutorial.nextScreenshot()
         self.delayDisplay("Screenshot #2: Loaded the sample dataset.")
+
 
         # 3 shot:
         scroll_area = self.util.getNamedWidget("CentralWidget/CentralWidgetLayoutFrame/QWidget:0/SlicerDICOMBrowser/ctkDICOMBrowser/dicomTableManager/tableSplitter/patientsTable/tblDicomDatabaseView").getChildren()
@@ -355,24 +357,12 @@ class VisualizationTutorialTest(ScriptedLoadableModuleTest):
     
     def downloadAndLoadZip(self):
         zip_url = "https://www.dropbox.com/s/03emcqnlec4t2s5/3DVisualizationDataset.zip?dl=1"
-        zip_file_name = "3DVisualizationDataset.zip"
         extraction_subfolder = "3DVisualizationDataset/dataset1_Thorax_Abdomen"
-        
-        zip_file_path = os.path.join(slicer.app.temporaryPath, zip_file_name)
-        
-        try:
-            if not os.path.exists(zip_file_path):
-                slicer.util.downloadFile(zip_url, zip_file_path)
+        zip_path = f"{slicer.app.temporaryPath}/3DVisualizationDataset.zip"
 
-            extract_dir = slicer.app.temporaryPath
-            with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
-                zip_ref.extractall(extract_dir)
-            
-            dataset_path = os.path.join(extract_dir, extraction_subfolder)
-            
-            for file_name in os.listdir(dataset_path):
-                file_path = os.path.join(dataset_path, file_name)
-                slicer.util.loadNodeFromFile(file_path, properties={})
-            
-        except Exception as e:
-            slicer.util.errorDisplay(f"Error during download or loading: {str(e)}")
+        urllib.request.urlretrieve(zip_url, zip_path)
+        
+        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+            zip_ref.extractall(slicer.app.temporaryPath)
+
+        slicer.dicomDatabase.openDatabase(f"{slicer.app.temporaryPath}/{extraction_subfolder}")
