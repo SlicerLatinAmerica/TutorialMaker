@@ -74,6 +74,19 @@ This tool was developed by **The 3D Slicer Latin America team**, whose members h
 
 Among the features of the tutorial maker tool are the following.    
 
+<ul>
+  <li>Internazionalization: The strings of the module's user interface were marked, enabling easy translation into multiple languages. The module's installation steps in Spanish [55], Portuguese [53] and English [54] are documented.
+</li>
+  <li>Accesibility: A simplified installation and use of the module allows a broader range of users to benefit from the tool.
+</li>
+  <li>Flexibility in Content Creation: 	The possibility to generate tutorials in multiple formats broadens the possibilities for distributing and utilizing the created content.
+</li>
+<li>Improved user experience: Interface optimizations and new features make the process of creating tutorials more intuitive and efficient. </li>
+<li> Project sustainability: Process automation and improved project management ensure the module's continuous development and long-term maintenance.
+ </li>
+</ul>
+
+
 **Repository**
 
 <a href="https://github.com/SlicerLatinAmerica/SlicerTutorialMaker" target="_blank">
