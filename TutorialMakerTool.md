@@ -93,3 +93,8 @@ Among the features of the tutorial maker tool are the following.
     The Tutorial Maker tool repository
   </a>
   contains a step-by-step installation process, and is constantly updated according to the improvements introduced by the team.
+  
+**First evaluations**
+
+ 6 Zoom meetings have been held with collaborators of the 3D Slicer In My Language project (EOSS cycle 4) to evaluate the Tutorial Maker tool. During the meeting, team members from Senegal reported on the tests they conducted using the Tutorial Maker tool to create a French version of the Slicer4Minute tutorial using the latest version of 3D Slicer (3D Slicer 5.7 Preview Release). The first test was carried out on September and consist on recreate the "FourMinTutorial"
+
