@@ -1,24 +1,37 @@
 ---
 layout: default
-title: Contributions
+title: 3D Slicer for Latin America
 ---
-
 <style>
-  .round-button {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color:rgb(39, 117, 46);
-    color: white;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+  .rectangular-button {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin borde */
+    padding: 12px 24px; /* Espaciado interno (alto y ancho) */
+    font-size: 16px; /* Tamaño de texto */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    cursor: pointer; /* Cursor en forma de mano */
+    text-align: center; /* Centra el texto */
+    margin: 10px auto; /* Centrado con margen */
+    display: inline-block; /* Permite el centrado */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: all 0.3s ease; /* Transición suave */
   }
 
-  .round-button:hover {
-    transform: scale(1.2);
+  /* Efecto hover (al pasar el ratón) */
+  .rectangular-button:hover {
+    background-color: #45a049; /* Verde más oscuro */
+    transform: scale(1.05); /* Pequeña ampliación */
+  }
+
+  .button-description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
   }
     .button-container {
     display: inline-block;
@@ -31,35 +44,54 @@ title: Contributions
     font-size: 14px;
     color: #555;
   }
+   .blue-box {
+    border: 2px solid #007BFF; /* Borde azul */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 5px; /* Esquinas ligeramente redondeadas */
+    background-color: #f8f9fa; /* Fondo claro */
+    color: #333; /* Color del texto */
+    font-size: 16px; /* Tamaño de la fuente */
+    max-width: 400px; /* Ancho máximo del cuadro */
+    margin: 20px auto; /* Centrar el cuadro */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
 </style>
 
-<div style=" padding:15px;">
+
+<div style="display: flex; justify-content: center; gap: 10px; padding:15px; ">
   <a href="Index" style="margin-right: 10px; text-decoration:none;">
     <button style="padding:10px 20px; color:#28a745; border:2px solid #28a745; border-radius:5px; background:none; cursor:pointer;">
       Introduction
     </button>
   </a>
-  <a href="webpages" style="margin-right: 10px; text-decoration:none;">
+  <a href="TutorialMakerTool" style="margin-right: 10px; text-decoration:none;">
     <button style="padding:10px 20px; color:#ffc107; border:2px solid #ffc107; border-radius:5px; background:none; cursor:pointer;">
-      Web pages
+      Tutorial Maker tool
     </button>
   </a>
-  <a href="Contributions" style="text-decoration:none;">
+  <a href="ProfessionalEvents" style="text-decoration:none;">
     <button style="padding:10px 20px; color:#007BFF; border:2px solid #007BFF; border-radius:5px; background:none; cursor:pointer;">
-      Contributions
+      Event participations
+    </button>
+  </a>
+    <a href="EducationalMaterials" style="text-decoration:none;">
+    <button style="padding:10px 20px; color:#6A0DAD; border:2px solid #6A0DAD; border-radius:5px; background:none; cursor:pointer;">
+      Internationalization
     </button>
   </a>
 </div>
 
-<div style=" padding:20px; margin-top:20px; text-align:center; font-size:24px; font-weight:bold;">
-  3D Slicer for Latin America
+<div style="background-color:#e9ecef; padding:20px; margin-top:20px; text-align:center; font-size:24px; font-weight:bold;">
+  Internationalization
 </div>
-
 
 ## **3D slicer tutorials and educational materials**
 
 These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6j6mfg0m89f1gb8f8fyf/h?rlkey=kzlbk9c2m5jnmqhsezp8gztd3&e=1&dl=0" target="_blank">
-  dropbox folder  </a>.
+  dropbox folder.  </a>
+
+
+
 **Educational Materials**
 
 <ul>

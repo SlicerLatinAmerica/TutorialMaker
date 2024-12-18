@@ -1,23 +1,28 @@
 ---
 layout: default
-title: Contributions
+title: 3D Slicer for Latin America
 ---
 
 
-<div style="background-color:#f8f9fa; padding:15px;">
+<div style="display: flex; justify-content: center; gap: 10px; padding:15px; ">
   <a href="Index" style="margin-right: 10px; text-decoration:none;">
     <button style="padding:10px 20px; color:#28a745; border:2px solid #28a745; border-radius:5px; background:none; cursor:pointer;">
       Introduction
     </button>
   </a>
-  <a href="webpages" style="margin-right: 10px; text-decoration:none;">
+  <a href="TutorialMakerTool" style="margin-right: 10px; text-decoration:none;">
     <button style="padding:10px 20px; color:#ffc107; border:2px solid #ffc107; border-radius:5px; background:none; cursor:pointer;">
-      Web pages
+      Tutorial Maker tool
     </button>
   </a>
-  <a href="Contributions" style="text-decoration:none;">
+  <a href="ProfessionalEvents" style="text-decoration:none;">
     <button style="padding:10px 20px; color:#007BFF; border:2px solid #007BFF; border-radius:5px; background:none; cursor:pointer;">
-      Contributions
+      Event participations
+    </button>
+  </a>
+    <a href="EducationalMaterials" style="text-decoration:none;">
+    <button style="padding:10px 20px; color:#6A0DAD; border:2px solid #6A0DAD; border-radius:5px; background:none; cursor:pointer;">
+      Internationalization
     </button>
   </a>
 </div>
