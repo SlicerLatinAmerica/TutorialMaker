@@ -23,7 +23,7 @@ title: Contributions
 </div>
 
 <div style="background-color:#e9ecef; padding:20px; margin-top:20px; text-align:center; font-size:24px; font-weight:bold;">
-  Tutorial Maker
+  3D Slicer for Latin America
 </div>
 
 ## **Introduction**

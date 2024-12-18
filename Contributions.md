@@ -4,21 +4,35 @@ title: Contributions
 ---
 
 <style>
-  .round-button {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color:rgb(39, 117, 46);
-    color: white;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+  .rectangular-button {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin borde */
+    padding: 12px 24px; /* Espaciado interno (alto y ancho) */
+    font-size: 16px; /* Tamaño de texto */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    cursor: pointer; /* Cursor en forma de mano */
+    text-align: center; /* Centra el texto */
+    margin: 10px auto; /* Centrado con margen */
+    display: inline-block; /* Permite el centrado */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: all 0.3s ease; /* Transición suave */
   }
 
-  .round-button:hover {
-    transform: scale(1.2);
+  /* Efecto hover (al pasar el ratón) */
+  .rectangular-button:hover {
+    background-color: #45a049; /* Verde más oscuro */
+    transform: scale(1.05); /* Pequeña ampliación */
+  }
+
+  .button-description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
   }
     .button-container {
     display: inline-block;
@@ -52,7 +66,7 @@ title: Contributions
 </div>
 
 <div style=" padding:20px; margin-top:20px; text-align:center; font-size:24px; font-weight:bold;">
-  Tutorial Maker
+3D Slicer for Latin America
 </div>
 
 
@@ -61,11 +75,33 @@ title: Contributions
 
 <div style="text-align:center; margin-top:20px;">
   <div class="button-container">
-      <a href="https://github.com/SlicerLatinAmerica/SlicerTutorialMaker" target="_blank" style="text-decoration:none;">
-        <button class="round-button">Tutorial Maker</button>
-      </a>
-      <div class="button-description">The Tutorial Maker tool has the goal to automate the creation of tutorials within the 3D Slicer environment. </div>
+    <a href="TutorialMakerTool" target="_blank" style="text-decoration:none;">
+      <button class="rectangular-button">Tutorial Maker</button>
+    </a>
+    <div class="button-description">
+      The Tutorial Maker tool has the goal to automate the creation of tutorials within the 3D Slicer environment.
     </div>
+  </div>
 </div>
 
+<div style="text-align:center; margin-top:20px;">
+  <div class="button-container">
+    <a href="EducationalMaterials" target="_blank" style="text-decoration:none;">
+      <button class="rectangular-button">Educational materials</button>
+    </a>
+    <div class="button-description">
+      Extra material created to improve 3D Slicer and the development of Tutorial Maker
+    </div>
+  </div>
+</div>
 
+<div style="text-align:center; margin-top:20px;">
+  <div class="button-container">
+    <a href="ProfessionalEvents" target="_blank" style="text-decoration:none;">
+      <button class="rectangular-button">Professional Events and Activities</button>
+    </a>
+    <div class="button-description">
+     .
+    </div>
+  </div>
+</div>
