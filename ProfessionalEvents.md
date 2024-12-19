@@ -129,6 +129,8 @@ title: 3D Slicer for Latin America
 
 ## **Profesional events and activities**
 
+Hola hola
+
 <div class="blue-box">
   <p> Three-day 3D Slicer Hackathon.</p>
 </div>

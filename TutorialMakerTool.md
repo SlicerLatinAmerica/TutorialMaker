@@ -96,8 +96,7 @@ This tool was developed by **The 3D Slicer Latin America team**, whose members h
 
 <div style="text-align:center; margin-top:40px;">
   <video width="640" height="360" controls>
-    <source src="https://drive.google.com/uc?export=download&id=16IayI-S9uughLSn8hDL57y23291Wfw7w" type="video/mp4">
-    Your browser does not support the video tag.
+    <source src="Media/TutorialMakerDemo.mp4" type="video/mp4">
   </video>
   <div class="button-description">Demo of the Tutorial Maker.</div>
 </div>
