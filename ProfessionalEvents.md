@@ -51,13 +51,14 @@ title: 3D Slicer for Latin America
     box-sizing: border-box; 
     text-align: center; 
   }
- .carousel-container {
-      max-width: 800px;
-      margin: 50px auto;
-      overflow: hidden;
-      position: relative;
-      border: 2px solid #6A0DAD; /* Borde morado */
-      border-radius: 8px;
+    .carousel-container {
+        max-width: 100%;
+        width: 100%;
+        margin: 50px auto;
+        overflow: hidden;
+        position: relative;
+        border: 2px solid #6A0DAD; /* Borde morado */
+        border-radius: 8px;
     }
 
     .carousel-images {
@@ -67,8 +68,8 @@ title: 3D Slicer for Latin America
 
     .carousel-images img {
       width: 100%;
-      max-width: 800px;
       height: auto;
+      display: block;
     }
 
     .carousel-buttons {
@@ -196,19 +197,7 @@ A workshop was organized by the Medical Bioengineer Enrique Hernandez Laredo, a 
     </div>
   </div>
 
-  <script>
-    let currentSlide = 0;
-
-    function moveSlide(direction) {
-      const carousel = document.getElementById('carousel');
-      const totalSlides = carousel.children.length;
-
-      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-
-      const offset = -currentSlide * 100;
-      carousel.style.transform = `translateX(${offset}%)`;
-    }
-  </script>
+  
 
 
 <div class="blue-box">
@@ -264,3 +253,27 @@ A workshop was organized by the Medical Bioengineer Enrique Hernandez Laredo, a 
 <div class="blue-box">
   <p> CZI Open Science meeting </p>
 </div>  
+
+<script>
+  // Seleccionar todos los carruseles en la página
+  const carousels = document.querySelectorAll('.carousel-container');
+
+  carousels.forEach((carousel) => {
+    const images = carousel.querySelector('.carousel-images');
+    const prevButton = carousel.querySelector('.prev');
+    const nextButton = carousel.querySelector('.next');
+    const totalSlides = images.children.length;
+    let currentSlide = 0;
+
+    // Función para mover las diapositivas
+    function moveSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      const offset = -currentSlide * 100;
+      images.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Event listeners para los botones
+    prevButton.addEventListener('click', () => moveSlide(-1));
+    nextButton.addEventListener('click', () => moveSlide(1));
+  });
+</script>
