@@ -74,7 +74,7 @@ title: 3D Slicer for Latin America
   </a>
   <a href="ProfessionalEvents" style="text-decoration:none;">
     <button style="padding:10px 20px; color:#007BFF; border:2px solid #007BFF; border-radius:5px; background:none; cursor:pointer;">
-      Event participations
+      Events
     </button>
   </a>
     <a href="EducationalMaterials" style="text-decoration:none;">
@@ -82,7 +82,14 @@ title: 3D Slicer for Latin America
       Internationalization
     </button>
   </a>
+  
+   <a href="Collaboration" style="margin-right: 10px; text-decoration:none;">
+    <button style="padding:10px 20px; color: #8B4513; border:2px solid  #8B4513; border-radius:5px; background:none; cursor:pointer;">
+      Collaborations
+    </button>
+  </a>
 </div>
+
 
 <div style="background-color:#e9ecef; padding:20px; margin-top:20px; text-align:center; font-size:24px; font-weight:bold;">
   Tutorial Maker Tool

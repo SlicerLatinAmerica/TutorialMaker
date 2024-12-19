@@ -75,7 +75,7 @@ title: 3D Slicer for Latin America
   </a>
   <a href="ProfessionalEvents" style="text-decoration:none;">
     <button style="padding:10px 20px; color:#007BFF; border:2px solid #007BFF; border-radius:5px; background:none; cursor:pointer;">
-      Event participations
+      Events
     </button>
   </a>
     <a href="EducationalMaterials" style="text-decoration:none;">
@@ -96,6 +96,12 @@ title: 3D Slicer for Latin America
 </div>
 
 ## **3D slicer tutorials and educational materials**
+
+Team members enable linguistic collaboration between biomedical professionals and software developers in an enriched professional environment, with an exclusive and unique language experience in developing linguistic tools in an interactive and motivational environment, balancing technical-intellectual and cultural-humanitarian aspects.
+
+
+The inclusion of linguistic expertise in the team facilitated both cultural considerations and more effective collaboration between linguistic and technical members, bridging gaps in the humanities and minimizing translation conflicts related to the specialized terminology required by the software. This environment contributed to the development of innovative linguistic tools specifically designed to enhance workflow and address the unique challenges of software translation, as outlined in an academic <a href="https://www.dropbox.com/scl/fi/y6p7i940r9rso5a6lpoeh/Manuscript_In_Preparation.pdf?rlkey=ph0rq5an2swbm9csy6wbbnttc&e=1&st=lte9pyt2&dl=0" target="_blank">
+  paper in progress.  </a>  Additionally, the careful consideration of cultural nuances ensured that the translations were not only technically accurate but also culturally sensitive, thereby improving the software’s accessibility and global relevance. 
 
 These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6j6mfg0m89f1gb8f8fyf/h?rlkey=kzlbk9c2m5jnmqhsezp8gztd3&e=1&dl=0" target="_blank">
   dropbox folder.  </a>
@@ -144,15 +150,47 @@ These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6
         file </a> </li> 
 </li>
 <li> Readme file of the Tutorial Maker in <a href="https://github.com/SlicerLatinAmerica/SlicerTutorialMaker/blob/main/README.md">english</a>, <a href="https://github.com/SlicerLatinAmerica/SlicerTutorialMaker/blob/main/README_pt-br.md">portuguese</a> and  <a href="https://github.com/SlicerLatinAmerica/SlicerTutorialMaker/blob/main/README_esp.md">spanish.</a> 
-
 </li>
+<li>Translation of 3D Slicer extensions: 3D Slicer extensions and additional libraries were fully translated to Spanish, with a total of 5552 strings completed.
+  <ul>
+    <li>
+    <a href="https://hosted.weblate.org/projects/3d-slicer/tutorialmaker/es_419/" target="_blank">
+   Translation of Tutorial Maker extension on weblate:  </a> the extension has been translated 97%, with 40 strings translated
+    </li>
+    <li>
+    <a href="https://hosted.weblate.org/projects/3d-slicer/slicerigt/es_419/" target="_blank">
+    the extension has been translated 92%, with 524 strings translated
+    </li>
+     <li>
+    <a href="https://hosted.weblate.org/projects/3d-slicer/ctk/es_419/" target="_blank">
+   Translation of the CTK extension:  </a> the extension has been translated 93% with 1,044 strings translated
+    </li>
+         <li>
+    <a href="https://hosted.weblate.org/projects/3d-slicer/languagepacks/es_419/" target="_blank">
+   Translation of language packs  </a> he extension has been translated 96%, with 55 strings translated. 
+    <li>
+        <a href="https://hosted.weblate.org/projects/3d-slicer/monailabel/es_419/">
+        Translation of the Slicer MonaiLabel extension:  </a>  the extensión has been translated 91%, with 168 strings translated.
+            </li>
+            <li>
+            <a href="https://hosted.weblate.org/projects/3d-slicer/slicervmtk/es_419/">
+        Translation of the Slicer SlicerVMKT extension:  </a>the extensión has been translated 84%, with 427 strings translated.
+            </li>
+  </ul>
+  <li><a href="https://docs.google.com/document/d/1-AWV0Hn3Th-X2MVMPqfSO0x9MWm2JSChDbpdUniQvC0/edit?tab=t.0">
+        Slicer documentation  </a>  the documentation has been translated in 35%.
+    <embed src="Media/Tutorials/TraduccionDocumentacionSlicer.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+  </li>
 </ul>
 
 
 
 **3D slicer tutorials**
 
-As part of the 3D Slicer for Latin America project, five tutorials were translated. The tutorials are presented below. </div>
+As part of the 3D Slicer for Latin America project, five tutorials were translated to portuguese adn two to spanish. The tutorials are presented below. </div>
 <ol>
   <li> <a href="https://docs.google.com/presentation/d/1HgtEc6CtnC2PXXXR5RjHcghQGaT5z0GTlusf2wlrz80/edit#slide=id.p1"> Slicer Welcome Tutorial in portuguese.  </a>  
      
@@ -177,17 +215,31 @@ As part of the 3D Slicer for Latin America project, five tutorials were translat
        height="480">
   </li>
    <li><a href="https://docs.google.com/presentation/d/1fXadBUVg8GEDbD2pVHaR6M_m8a26c7p08_kgUAo-dg8/edit#slide=id.p1"> Basics of Data Loading and 3D Visualization in 3D Slicer. </a>
-   <embed src="Media/Conceitosbasicos.pdf" 
+   <embed src="Media/Tutorials/Conceitos.pdf" 
        type="application/pdf" 
        width="100%" 
        height="480">
    
    </li>
   <li><a href="https://docs.google.com/presentation/d/1bvYBq6glSq21KcXN6qnLf7AZM2U42_SS-oitw8YCyWo/edit#slide=id.p1"> Tutorial Maker tutorial. </a>
-  <embed src="Media/TutorialMakerPW24portugues.pdf" 
+  <embed src="Media/Tutorials/TutorialMakerportugues.pdf" 
        type="application/pdf" 
        width="100%" 
        height="480">
   
   </li>    
+   <li><a href="https://www.dropbox.com/scl/fo/hfpjgwb92pio3k5sgd1t4/ABImJgOP0WgLXgVg577bIUw?dl=0&e=1&preview=2024_Talleres_WorkShop.pptx&rlkey=azswliwd1pmp3b8ulmquijqjr&st=7q2rrxep">Taller de 3D Slicer- Workshop. </a>
+  <embed src="Media/Tutorials/2024_Talleres_WorkShop.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+  
+  </li> 
+     <li><a href="https://www.dropbox.com/scl/fo/hfpjgwb92pio3k5sgd1t4/ABImJgOP0WgLXgVg577bIUw?dl=0&e=1&preview=3D+Slicer+Sonia+Pujol+traducci%C3%B3n+-+Toluca+2024.pptx&rlkey=azswliwd1pmp3b8ulmquijqjr&st=7q2rrxep">La plataforma de código abierto 3D Slicer para la investigación clínica. </a>
+  <embed src="Media/Tutorials/3DSlicerToluca2024.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+  
+  </li> 
 </ol>

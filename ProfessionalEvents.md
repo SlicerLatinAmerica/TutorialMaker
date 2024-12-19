@@ -115,7 +115,7 @@ title: 3D Slicer for Latin America
   </a>
   <a href="ProfessionalEvents" style="text-decoration:none;">
     <button style="padding:10px 20px; color:#007BFF; border:2px solid #007BFF; border-radius:5px; background:none; cursor:pointer;">
-      Event participations
+      Events
     </button>
   </a>
     <a href="EducationalMaterials" style="text-decoration:none;">
@@ -229,6 +229,23 @@ A workshop was organized by the Medical Bioengineer Enrique Hernandez Laredo, a 
       <img src="Media/kidneysWorksop/img20.jpg">
       <img src="Media/kidneysWorksop/Evidencia 3D Slicer riñones (1)_page-0001.jpg">
       <img src="Media/kidneysWorksop/IMG_3794 (1).jpeg">
+      <img src="Media/kidneysWorksop/4.png">
+      <img src="Media/kidneysWorksop/5.png">
+      <img src="Media/kidneysWorksop/6.jpg">
+      <img src="Media/kidneysWorksop/7.jpg">
+      <img src="Media/kidneysWorksop/8.jpg">
+      <img src="Media/kidneysWorksop/9.jpg">
+      <img src="Media/kidneysWorksop/10.jpg">
+      <img src="Media/kidneysWorksop/11.jpeg">
+      <img src="Media/kidneysWorksop/12.png">
+      <img src="Media/kidneysWorksop/13.png">
+      <img src="Media/kidneysWorksop/14.jpg">
+      <img src="Media/kidneysWorksop/15.png">
+      <img src="Media/kidneysWorksop/16.jpeg">
+      <img src="Media/kidneysWorksop/17.jpeg">
+      <img src="Media/kidneysWorksop/18.jpeg">
+      <img src="Media/kidneysWorksop/19.png">
+      <img src="Media/kidneysWorksop/20.jpg">
     </div>
     <div class="carousel-buttons">
         <button class="prev">&#10094; Prev</button>
