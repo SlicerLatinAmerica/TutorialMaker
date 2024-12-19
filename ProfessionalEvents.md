@@ -52,49 +52,49 @@ title: 3D Slicer for Latin America
     text-align: center; 
   }
     .carousel-container {
-        max-width: 100%;
-        width: 100%;
-        margin: 50px auto;
-        overflow: hidden;
-        position: relative;
-        border: 2px solid #6A0DAD; /* Borde morado */
-        border-radius: 8px;
-    }
+    width: 100%;
+    height: auto; 
+    margin: 50px auto;
+    overflow: hidden; 
+    position: relative;
+    border: 2px solid #6A0DAD; 
+    border-radius: 8px;
+  }
 
-    .carousel-images {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
+  .carousel-images {
+    display: flex; 
+    transition: transform 0.5s ease-in-out;
+  }
 
-    .carousel-images img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+  .carousel-images img {
+    width: 100%; 
+    height: auto; 
+    display: block;
+  }
 
-    .carousel-buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
+  .carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
 
-    .carousel-buttons button {
-      background-color: #6A0DAD;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 5px;
-      opacity: 0.8;
-    }
+  .carousel-buttons button {
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    opacity: 0.8;
+  }
 
-    .carousel-buttons button:hover {
-      opacity: 1;
-    }
+  .carousel-buttons button:hover {
+    opacity: 1;
+  }
 </style>
 
 
@@ -138,13 +138,13 @@ The Brazilian team organized a three-day 3D Slicer Hackathon within the <a href=
 <h2 style="text-align: center; color: #6A0DAD;">Obtaining 3D models of the kidneys from CT imaging workshop</h2>
 
   <div class="carousel-container">
-    <div class="carousel-images" id="carousel">
+    <div class="carousel-images">
       <img src="Media/HackatonBrazil/hackaton1.png" alt="Imagen 1">
       <img src="Media/HackatonBrazil/hackaton2.png" alt="Imagen 2">
     </div>
     <div class="carousel-buttons">
-      <button onclick="moveSlide(-1)">&#10094; Prev</button>
-      <button onclick="moveSlide(1)">Next &#10095;</button>
+        <button class="prev">&#10094; Prev</button>
+        <button class="next">Next &#10095;</button>
     </div>
   </div>
 
@@ -192,8 +192,8 @@ A workshop was organized by the Medical Bioengineer Enrique Hernandez Laredo, a 
       <img src="Media/kidneysWorksop/IMG_3794 (1).jpeg">
     </div>
     <div class="carousel-buttons">
-      <button onclick="moveSlide(-1)">&#10094; Prev</button>
-      <button onclick="moveSlide(1)">Next &#10095;</button>
+        <button class="prev">&#10094; Prev</button>
+        <button class="next">Next &#10095;</button>
     </div>
   </div>
 
@@ -243,9 +243,9 @@ A workshop was organized by the Medical Bioengineer Enrique Hernandez Laredo, a 
       <img src="Media/WorkshopSegmentacion/IMG_4604.JPEG">
       <img src="Media/WorkshopSegmentacion/IMG_4605.JPEG">
     </div>
-    <div class="carousel-buttons">
-      <button onclick="moveSlide(-1)">&#10094; Prev</button>
-      <button onclick="moveSlide(1)">Next &#10095;</button>
+     <div class="carousel-buttons">
+        <button class="prev">&#10094; Prev</button>
+        <button class="next">Next &#10095;</button>
     </div>
   </div>
 
@@ -268,7 +268,7 @@ A workshop was organized by the Medical Bioengineer Enrique Hernandez Laredo, a 
     // Función para mover las diapositivas
     function moveSlide(direction) {
       currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-      const offset = -currentSlide * 100;
+      const offset = -currentSlide * 100; // Mueve las imágenes horizontalmente
       images.style.transform = `translateX(${offset}%)`;
     }
 
