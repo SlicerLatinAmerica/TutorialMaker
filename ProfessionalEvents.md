@@ -200,12 +200,10 @@ This PW40 was the first participation in person, with one Mexican member [Enriqu
 
 The following Tutorial Maker presentation was made during the PW.
  
- <iframe src="https://docs.google.com/presentation/d/15V_1rt-GUr_VorydjYMzM5pb18oXaAE1/embed?start=false&loop=false&delayms=3000" 
-        width="100%" 
-        height="480" 
-        frameborder="0" 
-        allowfullscreen>
-</iframe>
+<embed src="Media/PW40/TutorialMakerPW24.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
 
 <div class="blue-box">
   <p> Participation in the 41° Project Week </p>
