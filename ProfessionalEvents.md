@@ -123,7 +123,7 @@ title: 3D Slicer for Latin America
       Internationalization
     </button>
   </a>
-   </a>
+
    <a href="Collaboration" style="margin-right: 10px; text-decoration:none;">
     <button style="padding:10px 20px; color: #8B4513; border:2px solid  #8B4513; border-radius:5px; background:none; cursor:pointer;">
       Collaborations

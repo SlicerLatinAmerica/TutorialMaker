@@ -88,11 +88,7 @@ title: 3D Slicer for Latin America
       Collaborations
     </button>
   </a>
-   <a href="Collaboration" style="margin-right: 10px; text-decoration:none;">
-    <button style="padding:10px 20px; color: #8B4513; border:2px solid  #8B4513; border-radius:5px; background:none; cursor:pointer;">
-      Collaborations
-    </button>
-  </a>
+
 </div>
 
 <div style="background-color:#e9ecef; padding:20px; margin-top:20px; text-align:center; font-size:24px; font-weight:bold;">
@@ -156,13 +152,42 @@ These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6
 
 **3D slicer tutorials**
 
-As part of the 3D Slicer for Latin America project, five tutorials were translated. The tutorials are presented below. 
-
+As part of the 3D Slicer for Latin America project, five tutorials were translated. The tutorials are presented below. </div>
 <ol>
-  <li> <a href="https://docs.google.com/presentation/d/1HgtEc6CtnC2PXXXR5RjHcghQGaT5z0GTlusf2wlrz80/edit#slide=id.p1"> Slicer Welcome Tutorial in portuguese.  </a>  </li>
-  <li><a href="https://docs.google.com/document/d/1Sn_AJqc7XIplf6z0Ei1Dl-aCdpBVE56GFspulrde3IM/edit?tab=t.0"> Slicer in 4 minutes, slides from english to portuguese.  </a> </li>
-  <li><a href="https://docs.google.com/presentation/d/1lGbRY-o--H5rFyHdZiuyO1CuWAZmLu3xHg7tJtjk0Kk/edit#slide=id.p1"> DICOM and 3D Slicer Tutorial in portuguese. </a></li>
-   <li><a href="https://docs.google.com/presentation/d/1fXadBUVg8GEDbD2pVHaR6M_m8a26c7p08_kgUAo-dg8/edit#slide=id.p1"> Basics of Data Loading and 3D Visualization in 3D Slicer. </a></li>
-  <li><a href="https://docs.google.com/presentation/d/1bvYBq6glSq21KcXN6qnLf7AZM2U42_SS-oitw8YCyWo/edit#slide=id.p1"> Tutorial Maker tutorial. </a></li>    
+  <li> <a href="https://docs.google.com/presentation/d/1HgtEc6CtnC2PXXXR5RjHcghQGaT5z0GTlusf2wlrz80/edit#slide=id.p1"> Slicer Welcome Tutorial in portuguese.  </a>  
+     
+<embed src="Media/Tutorials/Bem-vindo_ao_ Slicer2024.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+
+
+  </li>
+  <li><a href="https://docs.google.com/document/d/1Sn_AJqc7XIplf6z0Ei1Dl-aCdpBVE56GFspulrde3IM/edit?tab=t.0"> Slicer in 4 minutes, slides from english to portuguese.  </a> 
+  <embed src="Media/Tutorials/Tutorial_Slicer_4_minutos.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+    </li>
+
+  <li><a href="https://docs.google.com/presentation/d/1lGbRY-o--H5rFyHdZiuyO1CuWAZmLu3xHg7tJtjk0Kk/edit#slide=id.p1"> DICOM and 3D Slicer Tutorial in portuguese. </a>
+  <embed src="Media/Tutorials/DICOMe3DSlicer.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+  </li>
+   <li><a href="https://docs.google.com/presentation/d/1fXadBUVg8GEDbD2pVHaR6M_m8a26c7p08_kgUAo-dg8/edit#slide=id.p1"> Basics of Data Loading and 3D Visualization in 3D Slicer. </a>
+   <embed src="Media/Conceitosbasicos.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+   
+   </li>
+  <li><a href="https://docs.google.com/presentation/d/1bvYBq6glSq21KcXN6qnLf7AZM2U42_SS-oitw8YCyWo/edit#slide=id.p1"> Tutorial Maker tutorial. </a>
+  <embed src="Media/TutorialMakerPW24portugues.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+  
+  </li>    
 </ol>
-</div>
