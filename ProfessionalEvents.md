@@ -4,24 +4,22 @@ title: 3D Slicer for Latin America
 ---
 <style>
   .rectangular-button {
-    background-color: #4CAF50; /* Verde */
-    color: white; /* Texto en blanco */
-    border: none; /* Sin borde */
-    padding: 12px 24px; /* Espaciado interno (alto y ancho) */
-    font-size: 16px; /* Tamaño de texto */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    cursor: pointer; /* Cursor en forma de mano */
-    text-align: center; /* Centra el texto */
-    margin: 10px auto; /* Centrado con margen */
-    display: inline-block; /* Permite el centrado */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
-    transition: all 0.3s ease; /* Transición suave */
+    background-color: #4CAF50; 
+    color: black; 
+    border: none; 
+    padding: 12px 24px;
+    font-size: 16px; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    text-align: center; 
+    margin: 10px auto; 
+    display: inline-block;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
   }
-
-  /* Efecto hover (al pasar el ratón) */
   .rectangular-button:hover {
-    background-color: #45a049; /* Verde más oscuro */
-    transform: scale(1.05); /* Pequeña ampliación */
+    background-color: #45a049; 
+    transform: scale(1.05); 
   }
 
   .button-description {
@@ -47,7 +45,7 @@ title: 3D Slicer for Latin America
    .blue-box {
     width: 100%; 
     border: 2px solid #6A0DAD;
-    color: white;
+    color: black;
     padding: 15px; 
     margin: 0; 
     box-sizing: border-box; 
@@ -136,6 +134,19 @@ title: 3D Slicer for Latin America
 
 The Brazilian team organized a three-day 3D Slicer Hackathon within the <a href="https://www.xisiim2023.com/">XI Symposium on Medical Imaging and Instrumentation  </a>  program held from October 8 to 10, 2023, at the University of São Paulo, Ribeirão Preto campus. This was the First Slicer hackathon in Latin America. There were 20 attendees working on individual projects ranging from breast cancer ultrasound diagnosis systems to Alzheimer disease grading based on MRI. In the end, 2 projects were selected to be awarded by the Symposium organization with music gadgets and certificates.
 
+<h2 style="text-align: center; color: #6A0DAD;">Obtaining 3D models of the kidneys from CT imaging workshop</h2>
+
+  <div class="carousel-container">
+    <div class="carousel-images" id="carousel">
+      <img src="Media/HackatonBrazil/hackaton1.png" alt="Imagen 1">
+      <img src="Media/HackatonBrazil/hackaton2.png" alt="Imagen 2">
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="moveSlide(-1)">&#10094; Prev</button>
+      <button onclick="moveSlide(1)">Next &#10095;</button>
+    </div>
+  </div>
+
 
 <div class="blue-box">
   <p> Paper submitted to the CBEB 2024</p>
@@ -152,7 +163,7 @@ The following poster titled “Preliminary Results of 3D Slicer Localization to 
 The poster created interest in how internationalization works, how we get the strings to translate, how we show these strings, who can upload the translations in Weblate, the qualifications to do that, and also how can they do it,. Also, a brief discussion about how the language barriers can make the process for users to use the Slicer or understand the documentation when it is all in English and projects like your project can help professors and students that have a lot of experience but aren't fluent in English to contribute and share knowledge.
 
 
- <img src="https://github.com/pauloguilhermepp/TutorialMaker/blob/feature/web_page/Media/Poster_Slicer_LA_page-0001.jpg?raw=true" alt="Descriptive Text" width="600">
+ <img src="https://github.com/pauloguilhermepp/TutorialMaker/blob/feature/web_page/Media/Poster_Slicer_LA_page-0001.jpg?raw=true"  style="width: 100%; height: auto;">
 
 <div class="blue-box">
   <p> Participation on the 41st Slicer Project Week hackathon </p>
@@ -171,13 +182,13 @@ The Tutorial Maker Module was <a href="https://projectweek.na-mic.org/PW41_2024_
 
 A workshop was organized by the Medical Bioengineer Enrique Hernandez Laredo, a member of the mexican team. This 3-hour workshop was carried out as part of the dissemination activities, and it was held on May 7th and 14th, 2024 (<a href="https://drive.google.com/drive/folders/1ocEZNdQmZTyTrbeqOhXF2IBZGV-3U78m">Workshop evidence </a>). The “Obtaining Three-dimensional Kidney model from CT  Imaging” workshop was held at the Universidad del Valle de México in Metepec, State of Mexico. The workshop was attended by 25 sixth-semester students from the Biomedical Engineering Bachelor's program, and was taught in Spanish using the original (English) 3D Slicer 5.6.2 release version, the language selection was due to the lack of a stable internet connection and the time needed to train the users in the Spanish language configuration during the workshop.
 
-  <h2 style="text-align: center; color: #6A0DAD;">Galería Deslizante</h2>
+  <h2 style="text-align: center; color: #6A0DAD;">Obtaining 3D models of the kidneys from CT imaging workshop</h2>
 
   <div class="carousel-container">
     <div class="carousel-images" id="carousel">
-      <img src="Media/kidneysWorksop/img20.jpg" alt="Imagen 1">
-      <img src="Media/kidneysWorksop/Evidencia 3D Slicer riñones (1)_page-0001.jpg" alt="Imagen 2">
-      <img src="Media/kidneysWorksop/IMG_3794 (1).jpeg" alt="Imagen 3">
+      <img src="Media/kidneysWorksop/img20.jpg">
+      <img src="Media/kidneysWorksop/Evidencia 3D Slicer riñones (1)_page-0001.jpg">
+      <img src="Media/kidneysWorksop/IMG_3794 (1).jpeg">
     </div>
     <div class="carousel-buttons">
       <button onclick="moveSlide(-1)">&#10094; Prev</button>
@@ -205,6 +216,49 @@ A workshop was organized by the Medical Bioengineer Enrique Hernandez Laredo, a 
 </div>  
 
  A workshop was organized by the Mexican team at the Faculty of Engineering UAEM and the PhD. Joel Zagoya López (collaborator on the project), his area of expertise is design with experience in segmentation and reconstruction of 3D models for 3D printing. This 6-hour workshop entitled, was carried out as part of the dissemination activities, and it was held on June 10, 2024 (<a href="https://www.dropbox.com/scl/fo/8hz3suhibjgz9a4qoxjos/AHhVqWHecLWMzybXX1Nd9DA?rlkey=5ra1kj19wmd6070l5oxb9zwf9&e=1&st=rioowvr2&dl=0">Workshop material </a>). This educational event was specifically designed for the students interested in medical imaging. The session had an outstanding attendance of 4 teachers and 17 students eager to acquire knowledge in this cutting-edge area. A <a href="https://vmms.github.io/WorkshopSlicerMexico/">webpage </a> for this event was developed, in this page the material needed for the workshop was available to download.
+
+   <div class="carousel-container">
+    <div class="carousel-images" id="carousel">
+      <img src="Media/WorkshopSegmentacion/IMG_4572.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4573.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4574.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4575.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4576.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4577.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4578.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4579.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4580.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4581.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4582.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4583.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4584.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4585.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4586.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4587.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4588.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4589.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4590.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4591.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4592.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4593.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4594.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4595.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4596.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4597.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4598.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4599.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4600.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4601.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4602.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4603.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4604.JPEG">
+      <img src="Media/WorkshopSegmentacion/IMG_4605.JPEG">
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="moveSlide(-1)">&#10094; Prev</button>
+      <button onclick="moveSlide(1)">Next &#10095;</button>
+    </div>
+  </div>
 
 
 <div class="blue-box">
