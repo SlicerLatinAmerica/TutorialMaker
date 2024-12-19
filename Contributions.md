@@ -1,28 +1,27 @@
 ---
 layout: default
-title: Contributions
+title: 3D Slicer for Latin America
 ---
 
 <style>
   .rectangular-button {
-    background-color: #4CAF50; /* Verde */
-    color: white; /* Texto en blanco */
-    border: none; /* Sin borde */
-    padding: 12px 24px; /* Espaciado interno (alto y ancho) */
-    font-size: 16px; /* Tamaño de texto */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    cursor: pointer; /* Cursor en forma de mano */
-    text-align: center; /* Centra el texto */
-    margin: 10px auto; /* Centrado con margen */
-    display: inline-block; /* Permite el centrado */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
-    transition: all 0.3s ease; /* Transición suave */
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    text-align: center;
+    margin: 10px auto; 
+    display: inline-block; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
   }
 
-  /* Efecto hover (al pasar el ratón) */
   .rectangular-button:hover {
-    background-color: #45a049; /* Verde más oscuro */
-    transform: scale(1.05); /* Pequeña ampliación */
+    background-color: #45a049; 
+    transform: scale(1.05); 
   }
 
   .button-description {
@@ -61,6 +60,11 @@ title: Contributions
   <a href="Contributions" style="text-decoration:none;">
     <button style="padding:10px 20px; color:#007BFF; border:2px solid #007BFF; border-radius:5px; background:none; cursor:pointer;">
       Contributions
+    </button>
+  </a>
+   <a href="Collaboration" style="margin-right: 10px; text-decoration:none;">
+    <button style="padding:10px 20px; color: #8B4513; border:2px solid  #8B4513; border-radius:5px; background:none; cursor:pointer;">
+      Collaborations
     </button>
   </a>
 </div>

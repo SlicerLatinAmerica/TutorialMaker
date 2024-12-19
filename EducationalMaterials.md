@@ -3,25 +3,29 @@ layout: default
 title: 3D Slicer for Latin America
 ---
 <style>
+    .justify-text {
+    text-align: justify;
+    }
+
   .rectangular-button {
-    background-color: #4CAF50; /* Verde */
-    color: white; /* Texto en blanco */
-    border: none; /* Sin borde */
-    padding: 12px 24px; /* Espaciado interno (alto y ancho) */
-    font-size: 16px; /* Tamaño de texto */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    cursor: pointer; /* Cursor en forma de mano */
-    text-align: center; /* Centra el texto */
-    margin: 10px auto; /* Centrado con margen */
-    display: inline-block; /* Permite el centrado */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
-    transition: all 0.3s ease; /* Transición suave */
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    text-align: center;
+    margin: 10px auto; 
+    display: inline-block; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
   }
 
-  /* Efecto hover (al pasar el ratón) */
+ 
   .rectangular-button:hover {
-    background-color: #45a049; /* Verde más oscuro */
-    transform: scale(1.05); /* Pequeña ampliación */
+    background-color: #45a049; 
+    transform: scale(1.05); 
   }
 
   .button-description {
@@ -45,15 +49,15 @@ title: 3D Slicer for Latin America
     color: #555;
   }
    .blue-box {
-    border: 2px solid #007BFF; /* Borde azul */
-    padding: 15px; /* Espaciado interno */
-    border-radius: 5px; /* Esquinas ligeramente redondeadas */
-    background-color: #f8f9fa; /* Fondo claro */
-    color: #333; /* Color del texto */
-    font-size: 16px; /* Tamaño de la fuente */
-    max-width: 400px; /* Ancho máximo del cuadro */
-    margin: 20px auto; /* Centrar el cuadro */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border: 2px solid #007BFF; 
+    padding: 15px; 
+    border-radius: 5px; /
+    background-color: #f8f9fa; 
+    color: #333; 
+    font-size: 16px; 
+    max-width: 400px; 
+    margin: 20px auto; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
   }
 </style>
 
@@ -79,6 +83,16 @@ title: 3D Slicer for Latin America
       Internationalization
     </button>
   </a>
+   <a href="Collaboration" style="margin-right: 10px; text-decoration:none;">
+    <button style="padding:10px 20px; color: #8B4513; border:2px solid  #8B4513; border-radius:5px; background:none; cursor:pointer;">
+      Collaborations
+    </button>
+  </a>
+   <a href="Collaboration" style="margin-right: 10px; text-decoration:none;">
+    <button style="padding:10px 20px; color: #8B4513; border:2px solid  #8B4513; border-radius:5px; background:none; cursor:pointer;">
+      Collaborations
+    </button>
+  </a>
 </div>
 
 <div style="background-color:#e9ecef; padding:20px; margin-top:20px; text-align:center; font-size:24px; font-weight:bold;">
@@ -93,10 +107,10 @@ These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6
 
 
 **Educational Materials**
-
+<div class="justify-text">
 <ul>
   <li><a href="https://docs.google.com/document/d/1Rk7XVbEg7t4Yf5v8tgMBoE3T_KKyP0YtqtidkQFA3Do/edit?tab=t.0" target="_blank">
-   A GitHub tutorial  </a> to help new developers and community members
+   A GitHub tutorial  </a> to help new developers and community members.
 </li>
   <li>Translation of 3D Slicer extensions: 3D Slicer extensions and additional libraries were fully translated to Portuguese (100%), with a total of 8108 strings completed.
   <ul>
@@ -133,6 +147,9 @@ These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6
         GitHub repository </a> or in a <a href="https://docs.google.com/document/d/1jmjWrflJ7_wS5527ZJdZDKbaevBarrepNqJ32rgYkFE/edit?tab=t.0">
         file </a> </li> 
 </li>
+<li> Readme file of the Tutorial Maker in <a href="https://github.com/SlicerLatinAmerica/SlicerTutorialMaker/blob/main/README.md">english</a>, <a href="https://github.com/SlicerLatinAmerica/SlicerTutorialMaker/blob/main/README_pt-br.md">portuguese</a> and  <a href="https://github.com/SlicerLatinAmerica/SlicerTutorialMaker/blob/main/README_esp.md">spanish.</a> 
+
+</li>
 </ul>
 
 
@@ -148,3 +165,4 @@ As part of the 3D Slicer for Latin America project, five tutorials were translat
    <li><a href="https://docs.google.com/presentation/d/1fXadBUVg8GEDbD2pVHaR6M_m8a26c7p08_kgUAo-dg8/edit#slide=id.p1"> Basics of Data Loading and 3D Visualization in 3D Slicer. </a></li>
   <li><a href="https://docs.google.com/presentation/d/1bvYBq6glSq21KcXN6qnLf7AZM2U42_SS-oitw8YCyWo/edit#slide=id.p1"> Tutorial Maker tutorial. </a></li>    
 </ol>
+</div>

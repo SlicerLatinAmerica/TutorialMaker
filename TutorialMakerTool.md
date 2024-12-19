@@ -4,24 +4,23 @@ title: 3D Slicer for Latin America
 ---
 <style>
   .rectangular-button {
-    background-color: #4CAF50; /* Verde */
-    color: white; /* Texto en blanco */
-    border: none; /* Sin borde */
-    padding: 12px 24px; /* Espaciado interno (alto y ancho) */
-    font-size: 16px; /* Tamaño de texto */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    cursor: pointer; /* Cursor en forma de mano */
-    text-align: center; /* Centra el texto */
-    margin: 10px auto; /* Centrado con margen */
-    display: inline-block; /* Permite el centrado */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
-    transition: all 0.3s ease; /* Transición suave */
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    text-align: center;
+    margin: 10px auto; 
+    display: inline-block; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
   }
 
-  /* Efecto hover (al pasar el ratón) */
   .rectangular-button:hover {
-    background-color: #45a049; /* Verde más oscuro */
-    transform: scale(1.05); /* Pequeña ampliación */
+    background-color: #45a049; 
+    transform: scale(1.05); 
   }
 
   .button-description {
@@ -44,17 +43,21 @@ title: 3D Slicer for Latin America
     font-size: 14px;
     color: #555;
   }
-   .blue-box {
-    border: 2px solid #007BFF; /* Borde azul */
-    padding: 15px; /* Espaciado interno */
-    border-radius: 5px; /* Esquinas ligeramente redondeadas */
-    background-color: #f8f9fa; /* Fondo claro */
-    color: #333; /* Color del texto */
-    font-size: 16px; /* Tamaño de la fuente */
-    max-width: 400px; /* Ancho máximo del cuadro */
-    margin: 20px auto; /* Centrar el cuadro */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+ .blue-box {
+    width: 100%; 
+    border: 2px solid #6A0DAD;
+    color: black;
+    padding: 15px; 
+    margin: 0; 
+    box-sizing: border-box; 
+    text-align: center; 
+  
   }
+
+  .justify-text {
+    text-align: justify;
+  }
+
 </style>
 
 
@@ -89,10 +92,13 @@ title: 3D Slicer for Latin America
 
 **Description**
 
-The Tutotial Maker is a tool to automate the creation of tutorials within the 3D Slicer environment. To achieve this goal, a project management methodology has been implemented, combining weekly virtual meetings and using the GitHub platform as a code development and collaboration system version control.
+<div class="justify-text">
+The Tutorial Maker is a tool to automate the creation of tutorials within the 3D Slicer environment. To achieve this goal, a project management methodology has been implemented, combining weekly virtual meetings and using the GitHub platform as a code development and collaboration system version control.
+
 
 
 This tool was developed by **The 3D Slicer Latin America team**, whose members have made significant progress in developing the Tutorial Maker Module, focusing on improving its functionality, usability, and accessibility.
+</div>
 
 <div style="text-align:center; margin-top:40px;">
   <video width="640" height="360" controls>
@@ -102,6 +108,7 @@ This tool was developed by **The 3D Slicer Latin America team**, whose members h
 </div>
 
 
+<div class="justify-text">
 Among the features of the tutorial maker tool are the following.    
 
 <ul>
@@ -130,3 +137,4 @@ Among the features of the tutorial maker tool are the following.
 
  6 Zoom meetings have been held with collaborators of the 3D Slicer In My Language project (EOSS cycle 4) to evaluate the Tutorial Maker tool. During the meeting, team members from Senegal reported on the tests they conducted using the Tutorial Maker tool to create a French version of the Slicer4Minute tutorial using the latest version of 3D Slicer (3D Slicer 5.7 Preview Release). The first test was carried out on September and consist on recreate the "FourMinTutorial"
 
+</div>

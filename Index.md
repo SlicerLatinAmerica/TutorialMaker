@@ -4,25 +4,25 @@ title: 3D Slicer for Latin America
 ---
 
 <style>
-  .rectangular-button {
-    background-color: #4CAF50; /* Verde */
-    color: white; /* Texto en blanco */
-    border: none; /* Sin borde */
-    padding: 12px 24px; /* Espaciado interno (alto y ancho) */
-    font-size: 16px; /* Tamaño de texto */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    cursor: pointer; /* Cursor en forma de mano */
-    text-align: center; /* Centra el texto */
-    margin: 10px auto; /* Centrado con margen */
-    display: inline-block; /* Permite el centrado */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
-    transition: all 0.3s ease; /* Transición suave */
+   .rectangular-button {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    text-align: center;
+    margin: 10px auto; 
+    display: inline-block; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
   }
 
-  /* Efecto hover (al pasar el ratón) */
+ 
   .rectangular-button:hover {
-    background-color: #45a049; /* Verde más oscuro */
-    transform: scale(1.05); /* Pequeña ampliación */
+    background-color: #45a049; 
+    transform: scale(1.05); 
   }
 
   .button-description {
@@ -45,16 +45,16 @@ title: 3D Slicer for Latin America
     font-size: 14px;
     color: #555;
   }
-   .blue-box {
-    border: 2px solid #007BFF; /* Borde azul */
-    padding: 15px; /* Espaciado interno */
-    border-radius: 5px; /* Esquinas ligeramente redondeadas */
-    background-color: #f8f9fa; /* Fondo claro */
-    color: #333; /* Color del texto */
-    font-size: 16px; /* Tamaño de la fuente */
-    max-width: 400px; /* Ancho máximo del cuadro */
-    margin: 20px auto; /* Centrar el cuadro */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+     .blue-box {
+    border: 2px solid #007BFF; 
+    padding: 15px; 
+    border-radius: 5px; /
+    background-color: #f8f9fa; 
+    color: #333; 
+    font-size: 16px; 
+    max-width: 400px; 
+    margin: 20px auto; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
   }
 </style>
 
@@ -78,6 +78,11 @@ title: 3D Slicer for Latin America
     <a href="EducationalMaterials" style="text-decoration:none;">
     <button style="padding:10px 20px; color:#6A0DAD; border:2px solid #6A0DAD; border-radius:5px; background:none; cursor:pointer;">
       Internationalization
+    </button>
+  </a>
+   <a href="Collaboration" style="margin-right: 10px; text-decoration:none;">
+    <button style="padding:10px 20px; color:#28a745; border:2px solidrgb(82, 83, 29); border-radius:5px; background:none; cursor:pointer;">
+      Collaborations
     </button>
   </a>
 </div>
