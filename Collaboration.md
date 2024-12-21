@@ -64,7 +64,7 @@ title: 3D Slicer for Latin America
 <div style="display: flex; justify-content: center; gap: 10px; padding:15px; ">
   <a href="Index" style="margin-right: 10px; text-decoration:none;">
     <button style="padding:10px 20px; color:#28a745; border:2px solid #28a745; border-radius:5px; background:none; cursor:pointer;">
-      Introduction
+      Internationalization
     </button>
   </a>
   <a href="TutorialMakerTool" style="margin-right: 10px; text-decoration:none;">
@@ -77,11 +77,7 @@ title: 3D Slicer for Latin America
       Event participations
     </button>
   </a>
-    <a href="EducationalMaterials" style="text-decoration:none;">
-    <button style="padding:10px 20px; color:#6A0DAD; border:2px solid #6A0DAD; border-radius:5px; background:none; cursor:pointer;">
-      Internationalization
-    </button>
-  </a>
+
   
    <a href="Collaboration" style="margin-right: 10px; text-decoration:none;">
     <button style="padding:10px 20px; color: #8B4513; border:2px solid  #8B4513; border-radius:5px; background:none; cursor:pointer;">
@@ -92,7 +88,7 @@ title: 3D Slicer for Latin America
 
 
 <div style="background-color:#e9ecef; padding:20px; margin-top:20px; text-align:center; font-size:24px; font-weight:bold;">
-  Tutorial Maker Tool
+ Collaborations
 </div>
 
 ## **Collaborations and diversity**
@@ -117,18 +113,9 @@ Since August 2024 were collaborative working session between the  Slicer Interna
 </div>
 
 <div class="justify-text">
-As a team rooted in the cultural context of Latin America, we have collectively gained substantial benefits from the various training sessions provided by CZI open science community-building activities, highlighting the CZI Webinars. One essential aspect of our team’s development has been the investment in both individual and collective training, which has strengthened our cohesion and unity, which is very important when a project integrates countries. These CZI Webinars have significantly contributed to keeping us informed about the latest technological advancements and forward-thinking strategies, aligning our activities with current innovation trends. The webinars encouraged critical thinking and clear communication, which enhanced our teamwork, skill sets and overall competencies.
-
-Together, we have completed more than 25 courses (listed in the Supplementary Documents section), amounting to several hours of professional development as a Latin American team. These sessions allowed us to incorporate new strategies and methodologies into our daily workflows, from the integration of AI tools and improved communication techniques to refined decision-making processes, leadership and negotiation strategies. For instance, many team members found the discussions on generative AI particularly useful in understanding how to integrate such tools into organizational processes in the future and recognizing the associated risks, such as data security concerns. Others emphasized the significance of understanding AI’s role in optimizing workflows while safeguarding data privacy.
-
-The courses also strengthened our collaboration across borders, offering sessions in both English and Spanish. We covered themes like effective feedback, which stressed the importance of balancing positive reinforcement with constructive criticism to ensure supportive and productive team communication. The linguistic justice webinars were particularly appreciated, as they enabled non-English speakers to actively participate through translation services, fostering inclusivity and deeper engagement in our discussions. Moreover, the courses on data visualization and decision-making emphasized the importance of clarity in presenting data and structuring meetings, contributing to our team’s efficiency. Our collective understanding of visual design and translation also enhanced our ability to communicate effectively, both linguistically and visually, in a multilingual context.
-
-A wide range of topics was explored ad libitum, which contributed to both the technical and collaborative growth of the team, free to choose the learning topics. The course titles included: "Abordar el burnout", "Anatomía de una Reunión", "Beyond Hype & Fear", "Compelling design in Canva", "Cómo dar y recibir retroalimentación", "Copy Edit like a Pro", "Data series collection", "Data Standardization", "Data Visualization", "Designing an Effective, Actionable Homepage", "Digital strategic planning & processes", "Giving & Receiving Feedback", "Gestión del Estrés y la Ansiedad", "How do decisions impact your meetings?", "Integrating Generative AI at Your Organization", "Interpretation and translation on multilingual spaces", "Intro to Prompt Engineering", "Introduction to Lab Leadership", "Introductory Principles of Negotiation", "Justicia lingüística", "Let’s make a decision", "Mental Health at work", "Replanteamiento de las juntas directivas", "Time Management for the Lab Leader", "Understanding Conflict Management and Communication" and "Utilizing Design Thinking & AI for Team Success". These courses reflect our team’s key interests and needs, offering valuable insights that continue to shape our collaborative practices and create a secure working environment.
-
-In summary, the CZI webinars provided our team with invaluable insights and practical tools. A particularly appreciated aspect was the opportunity to explore strategies and tools at both organizational and team levels, applying them across various settings. The honest evaluation of each tool’s strengths and limitations was highly valued, especially the warnings regarding personal data protection, which some found surprisingly insightful. The practical examples, such as using ChatGPT for language-related tasks, resonated with the team, bringing theoretical concepts into practical application. Other key highlights included the exploration of data storage resources, like “Data Warehouses” and the use of brainstorming and feedback to facilitate more effective group decision-making. In this sense, the team did not report negative aspects or that there were no benefits from participating in the webinars.
-In conclusion, these webinars have not only advanced our technical abilities but also deepened our capacity to work cohesively as a multicultural team. CZI Webinars opportunities have helped us become more connected, informed and effective in our collective efforts, particularly in advancing our projects related to cultural and intellectual outreach and localization through 3D Slicer
-
-
+The team, rooted in the cultural context of Latin America, has gained substantial benefits from the training activities provided by CZI’s open science community, particularly through its webinars. These sessions have strengthened both individual and collective capacities, enhancing team cohesion—essential for projects spanning multiple countries. The webinars kept the team informed about technological advancements and innovative strategies, fostering critical thinking and clear communication. We completed over 25 courses covering a wide range of topics, from integrating AI tools and leadership strategies to time management and data visualization, significantly enriching their skills and collaborative abilities.
+</br>
+Additionally, the webinars addressed important themes like linguistic justice and visual design, promoting inclusive and effective participation within a multilingual team. Sessions offered in both English and Spanish highlighted the balance between positive reinforcement and constructive criticism while emphasizing the importance of data privacy when using generative AI tools. Through practical examples and applicable approaches, the team has improved its decision-making, communication, and meeting organization. Overall, the webinars have not only advanced their technical skills but also strengthened their ability to work cohesively as a multicultural team, aligning with their goals of cultural and intellectual outreach using innovative tools like 3D Slicer.
 </div>
 
 <div class="blue-box">
@@ -136,16 +123,7 @@ In conclusion, these webinars have not only advanced our technical abilities but
 </div>
 
 <div class="justify-text">
-As a Latin American team, we have made significant strides in increasing Diversity, Equity and Inclusion (DEI) within our 3D Slicer project, focusing on both Brazil and Mexico, as represented countries. Our efforts have centered on broadening the scope of contributors and leaders of the team, ensuring a more inclusive environment for all involved.
-
-In Brazil, we expanded our team by including Prof. Dr. Mirela Teixeira Cazzolato, who specializes in computer-aided methods for healthcare applications. Her involvement in the project has helped develop new features, including a Portuguese interface and tutorial modules for Brazilian professionals. In this way, she increases outstandingly female representation. Furthermore, our team leader, Prof. Luiz Murta, who has a motor disability (kernicterus sequels), exemplifies our commitment to fostering an inclusive environment that welcomes individuals from diverse backgrounds. Additionally, we are training Paulo Guilherme, a computer science student from Ceará, who adds geographic diversity by representing the northeastern region of Brazil, avoiding the historically technological concentration attributed to the southeast.
-
-In Mexico’s side, we focused on increasing female participation in both student and researcher roles. Six female professors and students from UAEM have been enrolled in the project. These include PhD students such as Mariana Álvarez Carbajal and Mayra Molina Carbajal, whose work focuses on AI applications in health; Diana A. Mendoza Mora, whose research involves using convolutional neural networks for medical imaging and Monserrat Ríos Hernández,  who joined the development team this year and focuses on the integration of virtual reality into medical applications, such as virtual simulators for medical procedures. This emphasis on female participation has enhanced the gender balance of our team, ensuring that women play a key role in both leadership and technical development.
-
-
-At the same time, our team is dedicated to providing equal opportunities for everyone involved, regardless of their background. So, the group ensured equal opportunity to those who wanted to participate in organized events. In both Brazil and Mexico, we ensured fair access to resources and opportunities, enabling participants from diverse institutions and regions to contribute to the project. In Brazil, this involved inviting institutions such as the Federal University of Rio de Janeiro (UFRJ) and the State University of Campinas (Unicamp) to participate in training sessions. In Mexico, similar efforts have been made to involve students and faculty from UAEM’s Biomedical Engineering program in developing key project components.
-
-We have actively worked to create an inclusive environment where all team members feel valued and respected. In Brazil, this included organizing a genre-balanced hackathon that welcomed participants with disabilities, including one deaf participant, who actively engaged in the event. In Mexico, inclusivity was enhanced by offering workshops and resources in Spanish, ensuring that non-English speakers could fully participate. This also involved integrating linguistic justice efforts (as we learned from the CZI Webinars, for example, “The Fundamentals of Language Justice / Los Fundamentos de la Justicia Lingüística”, hosted by Noemi Gonzales-Rocha) and by enabling students and researchers to use 3D Slicer in their native language.
-Through these combined efforts, our project has fostered a stronger sense of community across borders, ensuring that Diversity, Equity and Inclusion are at the core of our work. The Latin American team’s collaboration highlights our commitment to making 3D Slicer accessible and impactful for a wide range of contributors, promoting a more inclusive approach to technological development and healthcare solutions.
-
+As a Latin American team, we have prioritized Diversity, Equity, and Inclusion (DEI) within our 3D Slicer project, focusing on expanding participation in Brazil and Mexico. In Brazil, the inclusion of Prof. Dr. Mirela Teixeira Cazzolato, specializing in computer-aided healthcare methods, has led to the development of new features like a Portuguese interface and tutorial modules, while also increasing female representation. The team’s leader, Prof. Luiz Murta, who has a motor disability, exemplifies inclusivity in leadership, and the addition of Paulo Guilherme, a computer science student from northeastern Brazil, enhances geographic diversity. Similarly, in Mexico, six female professors and students from UAEM joined the project, contributing to AI, medical imaging, and virtual reality applications, thereby strengthening gender balance and fostering female leadership in technical roles.
+</br>
+Efforts in both countries ensured fair access to resources and opportunities for participants from diverse regions and institutions, including workshops in local languages. In Brazil, this included genre-balanced hackathons and training with institutions like UFRJ and Unicamp, while Mexico focused on workshops for UAEM’s Biomedical Engineering program and promoting linguistic justice. By integrating DEI into all aspects of the project, the team has created a respectful and inclusive environment, enabling broader access to 3D Slicer and fostering a collaborative, multicultural community committed to advancing healthcare technology.
 </div>

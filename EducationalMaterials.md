@@ -176,7 +176,7 @@ These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6
             <a href="https://hosted.weblate.org/projects/3d-slicer/slicervmtk/es_419/">
         Translation of the Slicer SlicerVMKT extension:  </a>the extensión has been translated 84%, with 427 strings translated.
             </li>
-  </ul>
+  
   <li><a href="https://docs.google.com/document/d/1-AWV0Hn3Th-X2MVMPqfSO0x9MWm2JSChDbpdUniQvC0/edit?tab=t.0">
         Slicer documentation  </a>  the documentation has been translated in 35%.
     <embed src="Media/Tutorials/TraduccionDocumentacionSlicer.pdf" 
@@ -184,13 +184,13 @@ These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6
        width="100%" 
        height="480">
   </li>
-</ul>
+</div>
 
 
 
 **3D slicer tutorials**
 
-As part of the 3D Slicer for Latin America project, five tutorials were translated to portuguese adn two to spanish. The tutorials are presented below. </div>
+As part of the 3D Slicer for Latin America project, five tutorials were translated to portuguese adn two to spanish. The tutorials are presented below. 
 <ol>
   <li> <a href="https://docs.google.com/presentation/d/1HgtEc6CtnC2PXXXR5RjHcghQGaT5z0GTlusf2wlrz80/edit#slide=id.p1"> Slicer Welcome Tutorial in portuguese.  </a>  
      

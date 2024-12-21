@@ -105,7 +105,7 @@ title: 3D Slicer for Latin America
 <div style="display: flex; justify-content: center; gap: 10px; padding:15px; ">
   <a href="Index" style="margin-right: 10px; text-decoration:none;">
     <button style="padding:10px 20px; color:#28a745; border:2px solid #28a745; border-radius:5px; background:none; cursor:pointer;">
-      Introduction
+      Internationalization
     </button>
   </a>
   <a href="TutorialMakerTool" style="margin-right: 10px; text-decoration:none;">
@@ -118,11 +118,7 @@ title: 3D Slicer for Latin America
       Events
     </button>
   </a>
-    <a href="EducationalMaterials" style="text-decoration:none;">
-    <button style="padding:10px 20px; color:#6A0DAD; border:2px solid #6A0DAD; border-radius:5px; background:none; cursor:pointer;">
-      Internationalization
-    </button>
-  </a>
+
 
    <a href="Collaboration" style="margin-right: 10px; text-decoration:none;">
     <button style="padding:10px 20px; color: #8B4513; border:2px solid  #8B4513; border-radius:5px; background:none; cursor:pointer;">
