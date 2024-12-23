@@ -190,7 +190,7 @@ These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6
 
 **3D slicer tutorials**
 
-As part of the 3D Slicer for Latin America project, five tutorials were translated to portuguese adn two to spanish. The tutorials are presented below. 
+<div class=''> As part of the 3D Slicer for Latin America project, five tutorials were translated to portuguese and seven to spanish. The tutorials are presented below. 
 <ol>
   <li> <a href="https://docs.google.com/presentation/d/1HgtEc6CtnC2PXXXR5RjHcghQGaT5z0GTlusf2wlrz80/edit#slide=id.p1"> Slicer Welcome Tutorial in portuguese.  </a>  
      
@@ -237,6 +237,42 @@ As part of the 3D Slicer for Latin America project, five tutorials were translat
   </li> 
      <li><a href="https://www.dropbox.com/scl/fo/hfpjgwb92pio3k5sgd1t4/ABImJgOP0WgLXgVg577bIUw?dl=0&e=1&preview=3D+Slicer+Sonia+Pujol+traducci%C3%B3n+-+Toluca+2024.pptx&rlkey=azswliwd1pmp3b8ulmquijqjr&st=7q2rrxep">La plataforma de código abierto 3D Slicer para la investigación clínica. </a>
   <embed src="Media/Tutorials/3DSlicerToluca2024.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+  
+  </li> 
+  <li><a href="https://www.dropbox.com/scl/fo/g06lp6stv8zakjtui41l6/AEyAvEhP-mcPsFIyMr3cI6k?download=true&e=2&from_auth=login&preview=Bienvendio_A_slicer_5_6.pptx&rlkey=58itfod5xncc9lmtvhqf4faaw&st=roaral1u&dl=0">Bienvenido a Slicer </a>
+  <embed src="Media/Tutorials/Bienvendio_A_slicer_5_6.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+  
+  </li> 
+  <li><a href="https://www.dropbox.com/scl/fo/g06lp6stv8zakjtui41l6/AEyAvEhP-mcPsFIyMr3cI6k?dl=0&download=true&e=2&from_auth=login&preview=ConceptosBasicosCarga_Visualizacion3D_5_6.pptx&rlkey=58itfod5xncc9lmtvhqf4faaw&st=roaral1u">Conceptos básicos de carga de datos y
+visualización 3D en 3D Slicer </a>
+  <embed src="Media/Tutorials/ConceptosBasicosCarga_Visualizacion3D_5_6.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+  
+  </li> 
+  <li><a href="https://www.dropbox.com/scl/fo/g06lp6stv8zakjtui41l6/AEyAvEhP-mcPsFIyMr3cI6k?dl=0&download=true&e=2&from_auth=login&preview=DICOM_y_3DSlicer5_6.pptx&rlkey=58itfod5xncc9lmtvhqf4faaw&st=roaral1u">Tutorial de DICOM y 3D Slicer </a>
+  <embed src="Media/Tutorials/DICOM_y_3DSlicer5_6.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+  
+  </li> 
+   <li><a href="https://www.dropbox.com/scl/fo/g06lp6stv8zakjtui41l6/AEyAvEhP-mcPsFIyMr3cI6k?dl=0&download=true&e=2&from_auth=login&preview=IntroduccionAImagenesFenotipicas5_6.pptx&rlkey=58itfod5xncc9lmtvhqf4faaw&st=roaral1u">Introducción a Imágenes Fenotípicas</a>
+  <embed src="Media/Tutorials/IntroduccionAImagenesFenotipicas5_6.pdf" 
+       type="application/pdf" 
+       width="100%" 
+       height="480">
+  
+  </li> 
+  <li><a href="https://www.dropbox.com/scl/fo/g06lp6stv8zakjtui41l6/AEyAvEhP-mcPsFIyMr3cI6k?dl=0&download=true&e=2&from_auth=login&preview=Slicer4+Minutos5_6.pptx&rlkey=58itfod5xncc9lmtvhqf4faaw&st=roaral1u">Introducción a Imágenes Fenotípicas</a>
+  <embed src="Media/Tutorials/Slicer4 Minutos5_6.pdf" 
        type="application/pdf" 
        width="100%" 
        height="480">

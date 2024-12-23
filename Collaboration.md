@@ -74,7 +74,7 @@ title: 3D Slicer for Latin America
   </a>
   <a href="ProfessionalEvents" style="text-decoration:none;">
     <button style="padding:10px 20px; color:#007BFF; border:2px solid #007BFF; border-radius:5px; background:none; cursor:pointer;">
-      Event participations
+      Events
     </button>
   </a>
 
