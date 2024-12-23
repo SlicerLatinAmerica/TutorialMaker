@@ -97,6 +97,7 @@ title: 3D Slicer for Latin America
 
 ## **3D slicer tutorials and educational materials**
 
+<div class="justify-text"> 
 Team members enable linguistic collaboration between biomedical professionals and software developers in an enriched professional environment, with an exclusive and unique language experience in developing linguistic tools in an interactive and motivational environment, balancing technical-intellectual and cultural-humanitarian aspects.
 
 
@@ -105,11 +106,12 @@ The inclusion of linguistic expertise in the team facilitated both cultural cons
 
 These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6j6mfg0m89f1gb8f8fyf/h?rlkey=kzlbk9c2m5jnmqhsezp8gztd3&e=1&dl=0" target="_blank">
   dropbox folder.  </a>
+</div>
 
 
 
 **Educational Materials**
-<div class="justify-text">
+
 <ul>
   <li><a href="https://docs.google.com/document/d/1Rk7XVbEg7t4Yf5v8tgMBoE3T_KKyP0YtqtidkQFA3Do/edit?tab=t.0" target="_blank">
    A GitHub tutorial  </a> to help new developers and community members.
@@ -184,7 +186,7 @@ These materials are available in this <a href="https://www.dropbox.com/scl/fo/s6
        width="100%" 
        height="480">
   </li>
-</div>
+
 
 
 
